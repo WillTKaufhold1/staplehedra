@@ -1,6 +1,6 @@
 # Staplehedra
 
-![bicolored tetrahedron](./vmdscene_bicolor.jpg)
+![bicolored tetrahedron](vmdscene_bicolor.jpg)
 Format: ![Alt Text](url)
 
 ## Release 0.0.
