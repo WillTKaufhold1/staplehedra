@@ -1,7 +1,5 @@
 # Staplehedra
 
-![bicolored tetrahedron](https://i.imgur.com/WlF92LX.png)
-Format: ![Alt Text](url)
 
 ## Release 0.0.
 
@@ -13,7 +11,14 @@ A Python3 package for the design and simulation of single-stranded DNA polyhedra
 
 ## The design
 
+I wrote this program so I could design small scale polyhedra (<10 nm in diamter) which would fold at high efficiency at vast concentrations (>1 uM) with 1:1 stoichiometry of strands.
 
+The idea is that if you're planning material synthesis from DNA (for example, for 3D crystals or gels), using scaffolded origami (e.g. m13mp18) starts to become super expensive for creating visible quantities of product. But staple-only DNA structures can be fairly affordable, even for the synthesis of macroscopic amounds of product.`
+
+The current tentative design strategy is to take use one oligonucleotide per face, 
+
+<img src="https://i.imgur.com/WlF92LX.png" width="200"/>
+Fig1: a DNA 
 
 ## Dependencies
 
