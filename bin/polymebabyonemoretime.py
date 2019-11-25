@@ -45,20 +45,19 @@ class edge():
         self.nLen = np.sqrt(np.sum((np.array(self.nStop)-np.array(self.nStart))**2))
         self.nBp = bp
 
-def parse():
+
+def __main__():
+
     parser = argparse.ArgumentParser(description = "Make poly")
     parser.add_argument('bp')
     parser.add_argument('plyfile')
+    parser.add_argument('dirname')
+    
     args = parser.parse_args()
 
     LENGTH_OF_SMALLEST = int(args.bp)
     FNAME = str(args.plyfile)
-
-    return args
-
-
-
-def __main__():
+    DIRNAME = str(args.dirname)
 
 
     locs,faces = read_ply(FNAME)
@@ -174,29 +173,31 @@ def __main__():
                         dimensions=(5000,5000,5000),
                     )
 
-    model.simulate(output_name = "loop", directory='sim1',
+    model.simulate(output_name = "loop", directory=DIRNAME,
                num_steps=1e6, output_period=1e3)
 
     from mrdna.coords import readArbdCoords
-    coords = readArbdCoords('sim1/output/loop.restart')
-    model.update_splines(coords) # Fits a spline through the coordinates
+    coords = readArbdCoords('%s/output/loop.restart'%(DIRNAME,))
+    model.update_splines(coords) 
 
     from mrdna.model.dna_sequence import read_sequence_file
-    seq = read_sequence_file() # Defaults to m13, but a file can be provided with custom sequence for the scaffold
+    seq = read_sequence_file() 
 
-    model.set_sequence(seq)    # Alternatively, can assign sequence to each strand or to each segment
+    model.set_sequence(seq)   
 
     generate_atomic = True
+    generate_oxdna = True
 
     if generate_atomic:
         model.generate_atomic_model()
-        model.write_atomic_ENM( output_name = "sim1/loop-atomic")   # Write out an elastic network of restraints for ENRG MD simulation
-        model.atomic_simulate( output_name = "sim1/loop-atomic" )  # Command doesn't actually run simulations yet
+        model.write_atomic_ENM( output_name = "%s/loop-atomic"%(DIRNAME,))   # Write out an elastic network of restraints for ENRG MD simulation
+        model.atomic_simulate( output_name = "%s/loop-atomic"%(DIRNAME,))  # Command doesn't actually run simulations yet
 
     if generate_oxdna:
         model.generate_oxdna_model()
-        model._write_oxdna_configuration('prova.conf')
-        model._write_oxdna_topology('top.top')
-        model._write_oxdna_input('in','top.top','prova.conf','trajectory.dat','last_conf.dat','log')
+        model._write_oxdna_configuration('%s/prova.conf')
+        model._write_oxdna_topology('%s/top.top')
+        model._write_oxdna_input('%s/in'%(DIRNAM,),'%s/top.top'%(DIRNAM,),'%s/prova.conf'%(DIRNAME,),'%s/trajectory.dat'%(DIRNAME,),'%s/last_conf.dat'%(DIRNAME),
+                            '%s/log'%(DIRNAME,))
 
 __main__()

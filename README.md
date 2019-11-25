@@ -1,6 +1,10 @@
 # Staplehedra
 
-## Release -1.0...
+![bicolored tetrahedron](./vmdscene_bicolor.tga)
+
+## Release 0.0.
+
+N.B: this script is barely function, and I'm shouldn't really be used by anyone for anything... I also haven't got round to cryo-EM-ing structures, so I don't even know if the designed structures fold correctly...
 
 ## DNA polyhedra generation from staples
 
