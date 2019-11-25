@@ -1,6 +1,6 @@
 # Staplehedra
 
-![bicolored tetrahedron](https://imgur.com/WlF92LX)
+![bicolored tetrahedron](https://i.imgur.com/WlF92LX.png)
 Format: ![Alt Text](url)
 
 ## Release 0.0.
@@ -10,6 +10,10 @@ N.B: this script is barely function, and I'm shouldn't really be used by anyone 
 ## DNA polyhedra generation from staples
 
 A Python3 package for the design and simulation of single-stranded DNA polyhedra constructed from staples only. The package takes as an input a ply file, denoting a faceted structure which is expandable to a sphere. It can return sequence choice for oligos, and files for simulation in MRDNA (Multi-Resolution DNA Simulations). Through the MRDNA framework it can return simulation files for the coarse grained force field oxDNA, and for atomistic simulation. 
+
+## The design
+
+
 
 ## Dependencies
 
