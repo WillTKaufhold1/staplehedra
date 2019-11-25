@@ -177,7 +177,7 @@ def __main__():
                     )
 
     model.simulate(output_name = "loop", directory=DIRNAME,
-               num_steps=1e6, output_period=1e3)
+               num_steps=1e4, output_period=1e3)
 
     from mrdna.coords import readArbdCoords
     coords = readArbdCoords('%s/output/loop.restart'%(DIRNAME,))
@@ -192,12 +192,12 @@ def __main__():
     if generate_atomic:
         model.generate_atomic_model()
         model.write_atomic_ENM( output_name = "%s/loop-atomic"%(DIRNAME,))  
-
+        model.atomic_simulate( output_name = "%s/loop-atomic"%(DIRNAME,) )
     if generate_oxdna:
         model.generate_oxdna_model()
         model._write_oxdna_configuration('%s/prova.conf'%(DIRNAME,))
         model._write_oxdna_topology('%s/top.top'%(DIRNAME,))
-        model._write_oxdna_input('%s/in'%(DIRNAM,),'%s/top.top'%(DIRNAM,),'%s/prova.conf'%(DIRNAME,),'%s/trajectory.dat'%(DIRNAME,),'%s/last_conf.dat'%(DIRNAME),
+        model._write_oxdna_input('%s/in'%(DIRNAME,),'%s/top.top'%(DIRNAME,),'%s/prova.conf'%(DIRNAME,),'%s/trajectory.dat'%(DIRNAME,),'%s/last_conf.dat'%(DIRNAME),
                             '%s/log'%(DIRNAME,))
 
 __main__()

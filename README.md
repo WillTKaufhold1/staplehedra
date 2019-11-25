@@ -16,10 +16,11 @@ The idea is that you might be planning material synthesis from DNA (for example,
 
 The current (tentative) design strategy is to use one oligonucleotide per face, as illustrated by the lighter colored strand in the tetrahedron below, and place the strand break in that oligonucleotide at a location midway between two vertices. Then repeat for all others faces.
 
-I have also included an option to have a variable number of single stranded DNAs between adjacent faces, which I image would control the flexibility of the structure.
+I have also included an option to have a variable number of single stranded DNAs between adjacent faces, which I imagine would control the flexibility of the structure.
 
-<img src="https://i.imgur.com/WlF92LX.png" width="200"/>
-Figure 1: a DNA tetrahedron generated with this software. Each face is a separate DNA strand.
+<img src="https://i.imgur.com/FOQmBUB.png" width="1000"/>
+
+Figure 1: various DNA Platonic Solids generated with Staplehedra. Each face is a separate DNA strand, and for each polyhedron, one DNA strand has been highlighted.
 
 ## Relationship to other software
 
