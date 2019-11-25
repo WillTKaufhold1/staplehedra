@@ -1,5 +1,4 @@
-#! /home/wtk23/anaconda3/bin/python
-
+#! /usr/bin/env python3
 import numpy as np
 import pandas as pd
 import mrdna
@@ -47,18 +46,22 @@ class edge():
 
 
 def __main__():
+    
+    generate_atomic = True
+    generate_oxdna = True
 
     parser = argparse.ArgumentParser(description = "Make poly")
     parser.add_argument('bp')
     parser.add_argument('plyfile')
     parser.add_argument('dirname')
-    
+    parser.add_argument('spacers')
+
     args = parser.parse_args()
 
     LENGTH_OF_SMALLEST = int(args.bp)
     FNAME = str(args.plyfile)
     DIRNAME = str(args.dirname)
-
+    SPACERS = int(args.spacers)
 
     locs,faces = read_ply(FNAME)
 
@@ -111,7 +114,7 @@ def __main__():
                 ss = copy(mrdna.SingleStrandedSegment("strand2",
                       start_position = segs[c1].end_position ,
                       end_position =   segs[c2].start_position,
-                      num_nt = 2))
+                      num_nt = SPACERS))
 
                 segs[c1].connect_end3(ss)
                 segs[c2].connect_start5(ss)
@@ -120,7 +123,7 @@ def __main__():
                 ss = copy(mrdna.SingleStrandedSegment("strand2",
                       start_position = segs[c1].end_position ,
                       end_position =   segs[c2[::-1]].end_position,
-                      num_nt = 2))
+                      num_nt = SPACERS))
 
                 segs[c1].connect_end3(ss)
                 segs[c2[::-1]].connect_end5(ss)
@@ -130,7 +133,7 @@ def __main__():
                 ss = copy(mrdna.SingleStrandedSegment("strand2",
                       start_position = segs[c1[::-1]].start_position ,
                       end_position =   segs[c2].start_position,
-                      num_nt = 2))
+                      num_nt = SPACERS))
 
                 segs[c1[::-1]].connect_start3(ss)
                 segs[c2].connect_start5(ss)
@@ -141,7 +144,7 @@ def __main__():
                 ss = copy(mrdna.SingleStrandedSegment("strand2",
                       start_position = segs[c1[::-1]].start_position ,
                       end_position =   segs[c2[::-1]].end_position,
-                      num_nt = 2))      
+                      num_nt = SPACERS))      
 
                 #segs[c1[::-1]].connect_start3(segs[c2[::-1]].end5)
 
@@ -185,18 +188,15 @@ def __main__():
 
     model.set_sequence(seq)   
 
-    generate_atomic = True
-    generate_oxdna = True
 
     if generate_atomic:
         model.generate_atomic_model()
-        model.write_atomic_ENM( output_name = "%s/loop-atomic"%(DIRNAME,))   # Write out an elastic network of restraints for ENRG MD simulation
-        model.atomic_simulate( output_name = "%s/loop-atomic"%(DIRNAME,))  # Command doesn't actually run simulations yet
+        model.write_atomic_ENM( output_name = "%s/loop-atomic"%(DIRNAME,))  
 
     if generate_oxdna:
         model.generate_oxdna_model()
-        model._write_oxdna_configuration('%s/prova.conf')
-        model._write_oxdna_topology('%s/top.top')
+        model._write_oxdna_configuration('%s/prova.conf'%(DIRNAME,))
+        model._write_oxdna_topology('%s/top.top'%(DIRNAME,))
         model._write_oxdna_input('%s/in'%(DIRNAM,),'%s/top.top'%(DIRNAM,),'%s/prova.conf'%(DIRNAME,),'%s/trajectory.dat'%(DIRNAME,),'%s/last_conf.dat'%(DIRNAME),
                             '%s/log'%(DIRNAME,))
 
