@@ -11,14 +11,14 @@ import segment_maker
 def make_parser():
 
     parser = argparse.ArgumentParser(description = "Make poly")
-    parser.add_argument('plyfile',help="take in a .ply format. Remember to have consistent facing normals!")
+    parser.add_argument('plyfile',type=str,help="take in a .ply format. Remember to have consistent facing normals!")
 
-    parser.add_argument('--bp',help="Length of shortest side in nucleotides")
-    parser.add_argument('--dirname', help="Simulation directory, created")
-    parser.add_argument('--spacers',help="ssDNA between adjacent edges")
+    parser.add_argument('--bp',type=int,default = 21,help="Length of shortest side in nucleotides")
+    parser.add_argument('--dirname',type=str, default="out",help="Simulation directory, created")
+    parser.add_argument('--spacers',type=int,default=1,help="ssDNA between adjacent edges")
 
-    parser.add_argument('--atoms',help="generate files for NAMD simulation")
-    parser.add_argument('--oxdna',help="generate oxDNA files")
+    parser.add_argument('--atoms',action="store_true",help="generate files for NAMD simulation")
+    parser.add_argument('--oxdna',action="store_true",help="generate oxDNA files")
 
     return parser
 
