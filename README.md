@@ -67,7 +67,7 @@ Staplehedra is essentially a very specific front end for the MRDNA package/proje
 You can call the script with:
 
 ```bash
-bin/polymebabyonemoretime.py 10 ../ply_files/dodec.ply sim1 1
+bin/polymebabyonemoretime.py --bp 21 --dirname out --spacers 1 --atoms --oxdna ../ply_files/dodec.ply
 ```
 
-Here, the length of the smallest edge is 10 nucleotides (other distances will be normalized to take account of this). At the moment, it makes a lot of sense to have this number as an integer multiple of 10.5, so as to match the helicity of DNA. The ply file is ../ply_files/dodec.ply -- I have included a tiny library of ply files in that directory. sim1 is the output directory name. Here, I have 1 unparied strand of DNA between edges. For reasons releated to my laziness, this can't be reduced to 0 yet...
+Here, the length of the shortest edge is 21 nucleotides (other distances will be normalized to take account of this). At the moment, it makes a lot of sense to have this number as an integer multiple of 10.5, so as to match the helicity of DNA. The ply file is ../ply_files/dodec.ply -- I have included a tiny library of ply files in that directory. out is the output directory name. Here, I have 1 unparied strand of DNA between edges. For reasons releated to my laziness, this can't be reduced to 0 yet...

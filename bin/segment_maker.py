@@ -80,9 +80,12 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS):
                                 end_position = e.nStop_c
                                        ))
 
+    ssDNA_index = 0
     for f in face_data:
 
         for con in f.connections:
+
+            ssDNA_index += 1
 
             c1,c2 = con
             c1_positive = c1 in segs
@@ -90,7 +93,7 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS):
 
             if c1_positive and c2_positive:
 
-                ss = copy(mrdna.SingleStrandedSegment("strand2",
+                ss = copy(mrdna.SingleStrandedSegment("strand%s"%(ssDNA_index,),
                       start_position = segs[c1].end_position ,
                       end_position =   segs[c2].start_position,
                       num_nt = SPACERS))
@@ -99,7 +102,7 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS):
                 segs[c2].connect_start5(ss)
 
             elif c1_positive and not c2_positive:
-                ss = copy(mrdna.SingleStrandedSegment("strand2",
+                ss = copy(mrdna.SingleStrandedSegment("strand%s"%(ssDNA_index,),
                       start_position = segs[c1].end_position ,
                       end_position =   segs[c2[::-1]].end_position,
                       num_nt = SPACERS))
@@ -109,7 +112,7 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS):
 
             elif not c1_positive and c2_positive:
 
-                ss = copy(mrdna.SingleStrandedSegment("strand2",
+                ss = copy(mrdna.SingleStrandedSegment("strand%s"%(ssDNA_index,),
                       start_position = segs[c1[::-1]].start_position ,
                       end_position =   segs[c2].start_position,
                       num_nt = SPACERS))
@@ -120,7 +123,7 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS):
 
             elif not c1_positive and not c2_positive:
 
-                ss = copy(mrdna.SingleStrandedSegment("strand2",
+                ss = copy(mrdna.SingleStrandedSegment("strand%s"%(ssDNA_index,),
                       start_position = segs[c1[::-1]].start_position ,
                       end_position =   segs[c2[::-1]].end_position,
                       num_nt = SPACERS))      

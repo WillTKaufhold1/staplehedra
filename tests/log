@@ -1,0 +1,159 @@
+hwllo
+Running ARBD with: /home/wtk23/Documents/phd/tools/arbd/arbd/src/arbd -g 0 DNA-0.bd output/DNA-0
+  –––––––––––––––––––––––––––––––––––––––––––––
+  |    Atomic Resolution Brownian Dynamics    |
+  –––––––––––––––––––––––––––––––––––––––––––––
+Found 1 GPU(s)
+[0] GeForce GTX 1050 (may timeout) | SM 6.1, 1.49GHz, 3.2GB RAM
+Read config file DNA-0.bd
+
+96 particles
+
+Found 3 particle types.
+Loading the potential grids...
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+
+Cutting off the potential from 48 to 50.
+Setting gpuID to 0
+Creating streams
+Copying particle data to GPU 0
+27
+32
+86
+Setting up random number generator with seed 6016956484077676484
+Created Cell Decomposition (97, 97, 97)
+Loading 9 tabulated non-bonded potentials...
+Using 348 non-bonded exclusions
+Loading 3 tabulated bond potentials...
+Loading 2 tabulated angle potentials...
+Running on GPU 0...
+WARNING: GPU may timeout
+
+
+Testing for Nose-Hoover Langevin dynamics
+Configuration: 96 particles | 1 replicas
+
+Step 10000 [99.99% complete | 0.131 ms/step | 131917.656 ns/day]
+Final Step: 10001
+Total Run Time: 1.31s
+Running ARBD with: /home/wtk23/Documents/phd/tools/arbd/arbd/src/arbd -g 0 DNA-1.bd output/DNA-1
+  –––––––––––––––––––––––––––––––––––––––––––––
+  |    Atomic Resolution Brownian Dynamics    |
+  –––––––––––––––––––––––––––––––––––––––––––––
+Found 1 GPU(s)
+[0] GeForce GTX 1050 (may timeout) | SM 6.1, 1.49GHz, 3.2GB RAM
+Read config file DNA-1.bd
+
+552 particles
+
+Found 5 particle types.
+Loading the potential grids...
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+
+Cutting off the potential from 48 to 50.
+Setting gpuID to 0
+Creating streams
+Copying particle data to GPU 0
+27
+32
+86
+Setting up random number generator with seed 4177266060632187184
+Created Cell Decomposition (97, 97, 97)
+Loading 25 tabulated non-bonded potentials...
+Using 3564 non-bonded exclusions
+Loading 4 tabulated bond potentials...
+Loading 4 tabulated angle potentials...
+Loading 6 tabulated dihedral potentials...
+Running on GPU 0...
+WARNING: GPU may timeout
+
+
+Testing for Nose-Hoover Langevin dynamics
+Configuration: 552 particles | 1 replicas
+
+Step 10000 [50.00% complete | 0.169 ms/step | 20396.516 ns/day]
+Step 20000 [100.00% complete | 0.150 ms/step | 23047.926 ns/day]
+Final Step: 20001
+Total Run Time: 3.20s
+Running ARBD with: /home/wtk23/Documents/phd/tools/arbd/arbd/src/arbd -g 0 DNA-2.bd output/DNA-2
+  –––––––––––––––––––––––––––––––––––––––––––––
+  |    Atomic Resolution Brownian Dynamics    |
+  –––––––––––––––––––––––––––––––––––––––––––––
+Found 1 GPU(s)
+[0] GeForce GTX 1050 (may timeout) | SM 6.1, 1.49GHz, 3.2GB RAM
+Read config file DNA-2.bd
+
+552 particles
+
+Found 5 particle types.
+Loading the potential grids...
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+
+Cutting off the potential from 48 to 50.
+Setting gpuID to 0
+Creating streams
+Copying particle data to GPU 0
+27
+32
+86
+Setting up random number generator with seed 10729060900468327119
+Created Cell Decomposition (97, 97, 97)
+Loading 25 tabulated non-bonded potentials...
+Using 3564 non-bonded exclusions
+Loading 4 tabulated bond potentials...
+Loading 4 tabulated angle potentials...
+Loading 6 tabulated dihedral potentials...
+Running on GPU 0...
+WARNING: GPU may timeout
+
+
+Testing for Nose-Hoover Langevin dynamics
+Configuration: 552 particles | 1 replicas
+
+Step 10000 [50.00% complete | 0.169 ms/step | 20503.996 ns/day]
+Step 20000 [100.00% complete | 0.165 ms/step | 20948.426 ns/day]
+Final Step: 20001
+Total Run Time: 3.34s
+/home/wtk23/anaconda3/lib/python3.7/site-packages/scipy/signal/_arraytools.py:45: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
+  b = a[a_slice]
+Traceback (most recent call last):
+  File "/home/wtk23/Dropbox/PROJECTS/Imperial_projects/poly/dev/bin/polymebabyonemoretime.py", line 123, in <module>
+    __main__()
+  File "/home/wtk23/Dropbox/PROJECTS/Imperial_projects/poly/dev/bin/polymebabyonemoretime.py", line 121, in __main__
+    simulate( **run_args )
+  File "/home/wtk23/anaconda3/lib/python3.7/site-packages/mrdna-0.0.0-py3.7.egg/mrdna/simulate.py", line 165, in multiresolution_simulation
+    output_period = oxdna_output_period )
+  File "/home/wtk23/anaconda3/lib/python3.7/site-packages/mrdna-0.0.0-py3.7.egg/mrdna/simulate.py", line 26, in minimize_and_simulate_oxdna
+    model.generate_oxdna_model()
+  File "/home/wtk23/anaconda3/lib/python3.7/site-packages/mrdna-0.0.0-py3.7.egg/mrdna/segmentmodel.py", line 3256, in generate_oxdna_model
+    s.generate_oxdna_model()
+  File "/home/wtk23/anaconda3/lib/python3.7/site-packages/mrdna-0.0.0-py3.7.egg/mrdna/segmentmodel.py", line 1535, in generate_oxdna_model
+    for c,seq in zip(contour,s.get_sequence()):
+  File "/home/wtk23/anaconda3/lib/python3.7/site-packages/mrdna-0.0.0-py3.7.egg/mrdna/segmentmodel.py", line 1352, in get_sequence
+    return [seqComplement[seg.sequence[nt]] for nt in self._nucleotide_ids()]
+  File "/home/wtk23/anaconda3/lib/python3.7/site-packages/mrdna-0.0.0-py3.7.egg/mrdna/segmentmodel.py", line 1352, in <listcomp>
+    return [seqComplement[seg.sequence[nt]] for nt in self._nucleotide_ids()]
+TypeError: 'NoneType' object is not subscriptable
