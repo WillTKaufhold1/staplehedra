@@ -1,174 +1,44 @@
 #! /usr/bin/env python3
 import numpy as np
-import pandas as pd
 import mrdna
 import sys
 import argparse
-from plyfile import PlyData
 from copy import deepcopy as copy
 
-def read_ply(fname):
-    polydata = PlyData.read(fname)
-    locs = list(zip(polydata['vertex']['x'],polydata['vertex']['y'],polydata['vertex']['z']))
-    faces = polydata['face']['vertex_index']
-    return locs,faces
+from mrdna.coords import readArbdCoords
+import segment_maker
 
-class face():
-    def __init__(self,vertices):
-        self.v = vertices
-        self.e = list(zip(self.v,np.roll(self.v,-1)))
-        self.ori = []
-
-        self.connections = list(zip(self.e,
-                                    map(tuple,np.roll(self.e,-1,axis = 0))))    
-
-class edge():
-    def __init__(self,index,start,stop):
-        self.index = index
-        self.start = start
-        self.stop = stop
-        self.rawlen = np.sqrt(np.sum((np.array(stop)-np.array(start))**2))
-        
-    def normalize(self,min_length,bp):
-        
-        compress_factor = 0.1
-        
-        self.nStart = self.start / min_length * bp * 3.4
-        self.nStop = self.stop / min_length * bp * 3.4
-        
-        #a bit of compression to avoid collisions.
-        vector = self.nStop-self.nStart
-        self.nStart_c = self.nStart + vector * compress_factor 
-        self.nStop_c  = self.nStop - vector * compress_factor
-        
-        self.nLen = np.sqrt(np.sum((np.array(self.nStop)-np.array(self.nStart))**2))
-        self.nBp = bp
-
-
-def __main__():
-    
-    generate_atomic = True
-    generate_oxdna = True
-
-    #todo: add sane method of argparser
+def make_parser():
 
     parser = argparse.ArgumentParser(description = "Make poly")
-    parser.add_argument('bp')
-    parser.add_argument('plyfile')
-    parser.add_argument('dirname')
-    parser.add_argument('spacers')
+    parser.add_argument('plyfile',help="take in a .ply format. Remember to have consistent facing normals!")
 
+    parser.add_argument('--bp',help="Length of shortest side in nucleotides")
+    parser.add_argument('--dirname', help="Simulation directory, created")
+    parser.add_argument('--spacers',help="ssDNA between adjacent edges")
+
+    parser.add_argument('--atoms',help="generate files for NAMD simulation")
+    parser.add_argument('--oxdna',help="generate oxDNA files")
+
+    return parser
+
+def __main__():
+
+    #TODO: add sane method of argparser
+
+    SIM_NAME = "DNA"
+
+    parser = make_parser()
     args = parser.parse_args()
 
+    generate_atomic = bool(args.atoms)
+    generate_oxdna = bool(args.oxdna)
     LENGTH_OF_SMALLEST = int(args.bp)
     FNAME = str(args.plyfile)
     DIRNAME = str(args.dirname)
     SPACERS = int(args.spacers)
-
-    locs,faces = read_ply(FNAME)
-
-    mentioned_edges = set()
-    face_data = [face(i) for i in faces]
-
-    for i in face_data:
-        for e in i.e:
-            if e not in mentioned_edges and e[::-1] not in mentioned_edges:
-                i.ori.append(1)
-                mentioned_edges.add(e)
-            else:
-                i.ori.append(-1)
-
-    edges = []
-
-    for i in mentioned_edges:
-        edges.append(
-            edge(i,locs[i[0]],locs[i[1]])
-        )
-
-    min_length = np.min([x.rawlen for x in edges])
-    max_length = np.max([x.rawlen for x in edges])
-
-    for i in edges:
-        i.normalize(min_length,LENGTH_OF_SMALLEST)
-
-    single_stranded_dna = []
-
-    segs = {}
-
-    for index, e in enumerate(edges):
-        segs[tuple(e.index)] = (
-            mrdna.DoubleStrandedSegment(name = 'helix%s'%(index,),
-                                num_bp = e.nBp,
-                                start_position = e.nStart_c,           
-                                end_position = e.nStop_c
-                                       ))
-
-    for f in face_data:
-
-        for con in f.connections:
-
-            c1,c2 = con
-            c1_positive = c1 in segs
-            c2_positive = c2 in segs
-
-            if c1_positive and c2_positive:
-
-                ss = copy(mrdna.SingleStrandedSegment("strand2",
-                      start_position = segs[c1].end_position ,
-                      end_position =   segs[c2].start_position,
-                      num_nt = SPACERS))
-
-                segs[c1].connect_end3(ss)
-                segs[c2].connect_start5(ss)
-
-            elif c1_positive and not c2_positive:
-                ss = copy(mrdna.SingleStrandedSegment("strand2",
-                      start_position = segs[c1].end_position ,
-                      end_position =   segs[c2[::-1]].end_position,
-                      num_nt = SPACERS))
-
-                segs[c1].connect_end3(ss)
-                segs[c2[::-1]].connect_end5(ss)
-
-            elif not c1_positive and c2_positive:
-
-                ss = copy(mrdna.SingleStrandedSegment("strand2",
-                      start_position = segs[c1[::-1]].start_position ,
-                      end_position =   segs[c2].start_position,
-                      num_nt = SPACERS))
-
-                segs[c1[::-1]].connect_start3(ss)
-                segs[c2].connect_start5(ss)
-
-
-            elif not c1_positive and not c2_positive:
-
-                ss = copy(mrdna.SingleStrandedSegment("strand2",
-                      start_position = segs[c1[::-1]].start_position ,
-                      end_position =   segs[c2[::-1]].end_position,
-                      num_nt = SPACERS))      
-
-                #segs[c1[::-1]].connect_start3(segs[c2[::-1]].end5)
-
-                segs[c1[::-1]].connect_start3(ss)
-                segs[c2[::-1]].connect_end5(ss)
-
-            single_stranded_dna.append(ss)
-
-            '''
-            if c1_positive and c2_positive:
-                segs[c1].connect_end3(segs[c2].start5)
-            elif c1_positive and not c2_positive:
-                segs[c1].connect_end3(segs[c2[::-1]].end5)
-            elif not c1_positive and c2_positive:
-                segs[c1[::-1]].connect_start3(segs[c2].start5)
-            elif not c1_positive and not c2_positive:
-                segs[c1[::-1]].connect_start3(segs[c2[::-1]].end5)
-            else:
-                print ('ohfuck') 
-            '''
-
-    segs_list = [segs[i] for i in segs] + single_stranded_dna
+    
+    segs_list = segment_maker.get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS)
 
     model = mrdna.SegmentModel(
                         segs_list,
@@ -178,11 +48,10 @@ def __main__():
                         dimensions=(5000,5000,5000),
                     )
 
-    model.simulate(output_name = "loop", directory=DIRNAME,
+    model.simulate(output_name = SIM_NAME, directory=DIRNAME,
                num_steps=1e4, output_period=1e3)
 
-    from mrdna.coords import readArbdCoords
-    coords = readArbdCoords('%s/output/loop.restart'%(DIRNAME,))
+    coords = readArbdCoords('%s/output/%s.restart'%(DIRNAME,SIM_NAME))
     model.update_splines(coords) 
 
     from mrdna.model.dna_sequence import read_sequence_file
@@ -190,11 +59,10 @@ def __main__():
 
     model.set_sequence(seq)   
 
-
     if generate_atomic:
         model.generate_atomic_model()
-        model.write_atomic_ENM( output_name = "%s/loop-atomic"%(DIRNAME,))  
-        model.atomic_simulate( output_name = "%s/loop-atomic"%(DIRNAME,) )
+        model.write_atomic_ENM( output_name = "%s/%s"%(DIRNAME,SIM_NAME+'-atomic',))  
+        model.atomic_simulate( output_name = "%s/%s"%(DIRNAME,SIM_NAME+'-atomic') )
     if generate_oxdna:
         model.generate_oxdna_model()
         model._write_oxdna_configuration('%s/prova.conf'%(DIRNAME,))
