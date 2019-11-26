@@ -50,6 +50,8 @@ def __main__():
     generate_atomic = True
     generate_oxdna = True
 
+    #todo: add sane method of argparser
+
     parser = argparse.ArgumentParser(description = "Make poly")
     parser.add_argument('bp')
     parser.add_argument('plyfile')
