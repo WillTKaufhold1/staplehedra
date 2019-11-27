@@ -21,6 +21,7 @@ def make_parser():
     parser.add_argument('--spacers',type=int,default=1,help="ssDNA between adjacent edges")
 
     #code lifted from MRDNA for consistency in inputs ... I should move this to a module...
+    #or reformat the entire thing to be a part of MRDNA? 
 
     parser.add_argument('-o','--output-prefix', type=str, default=None,
                         help="Name for your job's output")
@@ -65,13 +66,18 @@ def make_parser():
     parser.add_argument('--draw-tubes', action='store_true',
                         help='Whether or not to draw the tubes')
 
-
-
     return parser
 
 
 def m13seq():
-    
+    from functools import reduce
+    with open('../m13mp18.dat','r') as f:
+        data = f.readlines()
+    filtered = list(filter(lambda x : x[0] != ';',data))
+    stripped = list(map(lambda x : x.replace(' ','').replace('\n',''), filtered))
+    accumulalted = str(reduce( lambda x,y : x + y, stripped, ''))
+    return accumulalted
+
 
 def __main__():
 

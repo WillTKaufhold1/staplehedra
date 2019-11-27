@@ -1,6 +1,6 @@
 
 timestep 0.0002
-steps 10001
+steps 500001
 numberFluct 0                   # deprecated
 
 interparticleForce 1            # other values deprecated
@@ -51,8 +51,8 @@ tabulatedFile 0@2@potentials/DNA-0-nb.D000-S000.dat
 tabulatedFile 1@1@potentials/DNA-0-nb.D001-D001.dat
 tabulatedFile 1@2@potentials/DNA-0-nb.D001-S000.dat
 tabulatedFile 2@2@potentials/DNA-0-nb.S000-S000.dat
-tabulatedBondFile potentials/wlcbond-16.120-12.000.dat
 tabulatedBondFile potentials/gbond-1.160-12.410.dat
+tabulatedBondFile potentials/wlcbond-16.120-12.000.dat
 tabulatedBondFile potentials/gbond-1.008-14.280.dat
 tabulatedAngleFile potentials/angle-21.198-180.000.dat
 tabulatedAngleFile potentials/angle-19.806-180.000.dat

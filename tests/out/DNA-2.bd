@@ -1,6 +1,6 @@
 
 timestep 4e-05
-steps 20001
+steps 500001
 numberFluct 0                   # deprecated
 
 interparticleForce 1            # other values deprecated
@@ -70,20 +70,20 @@ tabulatedFile 2@4@potentials/DNA-2-nb.O000-S000.dat
 tabulatedFile 3@3@potentials/DNA-2-nb.O001-O001.dat
 tabulatedFile 3@4@potentials/DNA-2-nb.O001-S000.dat
 tabulatedFile 4@4@potentials/DNA-2-nb.S000-S000.dat
-tabulatedBondFile potentials/wlcbond-11.000-12.000.dat
-tabulatedBondFile potentials/gbond-3.387-4.250.dat
-tabulatedBondFile potentials/bond-30.000-1.500.dat
 tabulatedBondFile potentials/gbond-4.233-3.400.dat
+tabulatedBondFile potentials/bond-30.000-1.500.dat
+tabulatedBondFile potentials/gbond-3.387-4.250.dat
+tabulatedBondFile potentials/wlcbond-11.000-12.000.dat
 tabulatedAngleFile potentials/angle-33.391-90.000.dat
 tabulatedAngleFile potentials/angle-55.662-180.000.dat
 tabulatedAngleFile potentials/angle-41.748-90.000.dat
 tabulatedAngleFile potentials/angle-62.622-180.000.dat
-tabulatedDihedralFile potentials/dihedral-20.874-180.000.dat
 tabulatedDihedralFile potentials/dihedral-21.522--120.000.dat
-tabulatedDihedralFile potentials/dihedral-18.554-180.000.dat
 tabulatedDihedralFile potentials/dihedral-61.229-43.103.dat
-tabulatedDihedralFile potentials/dihedral-21.522-120.000.dat
+tabulatedDihedralFile potentials/dihedral-18.554-180.000.dat
 tabulatedDihedralFile potentials/dihedral-76.537-34.483.dat
+tabulatedDihedralFile potentials/dihedral-21.522-120.000.dat
+tabulatedDihedralFile potentials/dihedral-20.874-180.000.dat
 inputBonds potentials/DNA-2.bonds.txt
 inputAngles potentials/DNA-2.angles.txt
 inputDihedrals potentials/DNA-2.dihedrals.txt
