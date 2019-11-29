@@ -40,15 +40,14 @@ class edge():
         self.nLen = np.sqrt(np.sum((np.array(self.nStop)-np.array(self.nStart))**2))
         self.nBp = bp
 
-
 def decide_breaks():
-    #... decide breaks here!
+    #need to assign each face to a edge that is adjacent to that face.
+    #define a graph, then define a walk around that graph... if Eulerian....
     pass
 
 def break_me(segs,breaks):
-    #... break up segs here!
+    #segs_list[0].add_nick(34,fwd_strand=True)
     pass
-
 
 def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS):
 
