@@ -41,14 +41,13 @@ Staplehedra is essentially a very specific front end for the MRDNA package/proje
 
 * Generation of PBBs of polyhedra from .ply files, made from circular DNA
 * Relaxation in MRDNA.
-* Controllable numbers of unpaired DNA nucleotides between vertices (1 or more...)
+* Controllable numbers of unpaired DNA nucleotides between vertices 
 
-## Stuff that will (hopefully) work tomorrow (evening of 26/11/19 GMT)
+## Stuff that will work this evening
 
 * Strategic placing of strand breaks to create polyhedra from linear DNA
 * Export of sequences to a .csv file
-* Automatic atomistic / oxDNA simulation 
-* Eliminating lower limit of number of unpaired DNA nucleotides between vertices
+* Automatic atomistic / oxDNA simulation (broken at the moment)
 
 ## Plans for the immediate future (like early December)
 
@@ -64,10 +63,10 @@ Staplehedra is essentially a very specific front end for the MRDNA package/proje
 
 ## Usage
 
-You can call the script with:
+You can call the script using all of the MRDNA arguments (including --coarse-steps --fine-steps --oxdna-steps -d etc.), with the additional options of --spacers, --bp, which are specific for the creation of the polyhedra.
 
 ```bash
-bin/polymebabyonemoretime.py --bp 21 --dirname out --spacers 1 --atoms --oxdna ../ply_files/dodec.ply
+bin/polymebabyonemoretime.py --bp 21 -d out --spacers 1 --coarse-steps 1e5 --fine-steps 1e5 ../ply_files/dodec.ply
 ```
 
-Here, the length of the shortest edge is 21 nucleotides (other distances will be normalized to take account of this). At the moment, it makes a lot of sense to have this number as an integer multiple of 10.5, so as to match the helicity of DNA. The ply file is ../ply_files/dodec.ply -- I have included a tiny library of ply files in that directory. out is the output directory name. Here, I have 1 unparied strand of DNA between edges. For reasons releated to my laziness, this can't be reduced to 0 yet...
+Here, the length of the shortest edge is 21 nucleotides (other distances will be normalized to take account of this). At the moment, it makes a lot of sense to have this number as an integer multiple of 10.5, so as to match the helicity of DNA. The ply file is ../ply_files/dodec.ply -- I have included a tiny library of ply files in that directory. out is the output directory name. Here, I have 1 unparied strand of DNA between edges.

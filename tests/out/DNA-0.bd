@@ -1,6 +1,6 @@
 
 timestep 0.0002
-steps 500001
+steps 100001
 numberFluct 0                   # deprecated
 
 interparticleForce 1            # other values deprecated
@@ -25,17 +25,12 @@ systemSize 5000 5000 5000
 
 particle D000
 num 24
-diffusion 44.90132619735892
+diffusion 54.554473797740975
 gridFile potentials/null.dx
 
 particle D001
 num 48
 diffusion 38.57583836644647
-gridFile potentials/null.dx
-
-particle S000
-num 24
-diffusion 111.80339887498948
 gridFile potentials/null.dx
 
 ## Input coordinates
@@ -47,14 +42,11 @@ tabulatedPotential  1
 ## The i@j@file syntax means particle type i will have NB interactions with particle type j using the potential in file
 tabulatedFile 0@0@potentials/DNA-0-nb.D000-D000.dat
 tabulatedFile 0@1@potentials/DNA-0-nb.D000-D001.dat
-tabulatedFile 0@2@potentials/DNA-0-nb.D000-S000.dat
 tabulatedFile 1@1@potentials/DNA-0-nb.D001-D001.dat
-tabulatedFile 1@2@potentials/DNA-0-nb.D001-S000.dat
-tabulatedFile 2@2@potentials/DNA-0-nb.S000-S000.dat
-tabulatedBondFile potentials/gbond-1.160-12.410.dat
-tabulatedBondFile potentials/wlcbond-16.120-12.000.dat
 tabulatedBondFile potentials/gbond-1.008-14.280.dat
-tabulatedAngleFile potentials/angle-21.198-180.000.dat
+tabulatedBondFile potentials/bond-4.000-18.500.dat
+tabulatedBondFile potentials/gbond-1.344-10.710.dat
+tabulatedAngleFile potentials/angle-22.650-180.000.dat
 tabulatedAngleFile potentials/angle-19.806-180.000.dat
 inputBonds potentials/DNA-0.bonds.txt
 inputAngles potentials/DNA-0.angles.txt
