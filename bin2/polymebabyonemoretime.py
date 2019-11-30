@@ -42,6 +42,7 @@ def __main__():
     parser = make_parser()
     args = parser.parse_args()
 
+
     LENGTH_OF_SMALLEST = int(args.bp)
     FNAME = str(args.plyfile)
     SPACERS = int(args.spacers)

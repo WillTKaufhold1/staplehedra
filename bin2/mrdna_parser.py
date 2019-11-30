@@ -7,7 +7,7 @@ def make_parser():
 
     parser.add_argument('--bp',type=int,default = 21,help="Length of shortest side in nucleotides")
     parser.add_argument('--spacers',type=int,default=1,help="ssDNA between adjacent edges")
-    parser.add_argument('--seqfile',type=str,default=1,help="output file for sequence")
+    parser.add_argument('--seqfile',type=str,default="out.seq",help="output file for sequence")
 
     parser.add_argument('-o','--output-prefix', type=str, default=None,
                         help="Name for your job's output")

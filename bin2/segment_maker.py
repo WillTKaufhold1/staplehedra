@@ -17,6 +17,8 @@ class face():
 
         self.connections = list(zip(self.e,
                                     map(tuple,np.roll(self.e,-1,axis = 0))))    
+    def apply_nick(self,nick):
+        self.nick = nick
 
 class edge():
     def __init__(self,index,start,stop):
@@ -40,10 +42,62 @@ class edge():
         self.nLen = np.sqrt(np.sum((np.array(self.nStop)-np.array(self.nStart))**2))
         self.nBp = bp
 
-def decide_breaks():
-    #need to assign each face to a edge that is adjacent to that face.
-    #define a graph, then define a walk around that graph... if Eulerian....
-    pass
+def get_graph(face_data):
+    E_vals = [i.e for i in face_data]
+    graph = {}
+    attached = []
+
+    for face_index,face in enumerate(E_vals):
+        graph[face_index] = []
+        for edge in face:
+            for other_edge_index,other_edge_list in enumerate(E_vals):
+                if (edge[::-1] in other_edge_list):
+                    graph[face_index].append(other_edge_index)
+    return graph
+
+def get_break_index(face_data):
+    
+    graph = get_graph(face_data)
+    breaks = {}
+    face = 0
+    breaks[face] = graph[face][0]
+    graph[face].remove(breaks[face])
+    graph[breaks[face]].remove(face)
+    leading_edge = copy(graph[face])
+    for l in leading_edge:
+        breaks[l] = face
+        
+    while leading_edge != []:        
+        for face in copy(leading_edge):
+            for otherface in copy(graph[face]):
+                if otherface not in breaks.keys():
+
+                    leading_edge.append(copy(otherface))
+                    breaks[otherface] = copy(face)
+
+                    graph[face].remove(otherface)
+                    graph[otherface].remove(face)
+
+            leading_edge.remove(face)
+
+    return breaks
+
+def assign_nicks(face_data):
+
+    breaks = get_break_index(face_data)
+
+    E_vals = [i.e for i in face_data]
+
+    edge_dict = {}
+
+    for face1,edges_1 in enumerate(E_vals):
+        for edge in edges_1:
+            for face2,edges_2 in enumerate(E_vals):
+                if (edge[::-1] in edges_2 and edge not in edges_2):
+                    edge_dict[(face1,face2)] = edge
+
+    for b in breaks:
+        face_data[b].apply_nick(edge_dict[(b,breaks[b])])
 
 def break_me(segs,breaks):
     #segs_list[0].add_nick(34,fwd_strand=True)
@@ -154,6 +208,22 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS):
                 elif not c1_positive and not c2_positive:
                     segs[c1[::-1]].connect_start3(segs[c2[::-1]].end5,type_="terminal_crossover")
 
-    segs_list = [segs[i] for i in segs] + single_stranded_dna
 
+    #now we apply the nicks
+    assign_nicks(face_data)
+    '''
+    #apply_nicks(face_data)
+    for f in face_data:
+        nick = f.nick
+        print (nick)
+        print (f.nick in f.e)
+        #I'm not 100% sure this is right...
+        if nick in segs:
+            segs[nick].add_nick(10,on_fwd_strand=True)
+
+        else:
+            segs[nick[::-1]].add_nick(10,on_fwd_strand=False)
+    '''
+    segs_list = [segs[i] for i in segs] + single_stranded_dna
+    
     return segs_list
