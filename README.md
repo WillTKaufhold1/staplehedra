@@ -16,11 +16,15 @@ The idea is that you might be planning material synthesis from DNA (for example,
 
 The current (tentative) design strategy is to use one oligonucleotide per face, as illustrated by the lighter colored strand in the tetrahedron below, and place the strand break in that oligonucleotide at a location midway between two vertices. Then repeat for all others faces.
 
-I have also included an option to have a variable number of single stranded DNAs between adjacent faces, which I imagine would control the flexibility of the structure.
 
 <img src="https://i.imgur.com/R2x5KzT.png" width="1000"/>
 
 Figure 1: various DNA Platonic Solids generated with Staplehedra. Each face is a separate DNA strand, and for each polyhedron, one DNA strand has been highlighted.
+
+I have also included an option to have a variable number of single stranded DNAs between adjacent faces, which I imagine would control the flexibility of the structure. This may be useful if you are creating macromolecular structures where some feature has an unknown size -- for example, the size of cholesterol micelles in an amphiphilic structure. Alteratively, such a feature may be useful if studying patchy colloids with varying size of patch -- a more flexible DNA polyhedron would correspond to a patchy colloid with a larger patch.
+
+![](assets/run0.gif)
+
 
 ## Relationship to other software
 

@@ -5,7 +5,7 @@ def make_parser():
     parser = argparse.ArgumentParser(description = "Make poly")
     parser.add_argument('plyfile',type=str,help="take in a .ply format. Remember to have consistent facing normals!")
 
-    parser.add_argument('--bp',type=int,default = 42,help="Length of shortest side in nucleotides")
+    parser.add_argument('--bp',type=int,default = 21,help="Length of shortest side in nucleotides")
     parser.add_argument('--spacers',type=int,default=1,help="ssDNA between adjacent edges")
     parser.add_argument('--seqfile',type=str,default="out.seq",help="output file for sequence")
 
