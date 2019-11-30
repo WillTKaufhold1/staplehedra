@@ -28,6 +28,19 @@ I have also included an option to have a variable number of single stranded DNAs
 <img src = https://imgur.com/zKYRxJr.gif, width=300 />
 
 
+
+<div class="row">
+  <div class="column">
+    <img src=https://imgur.com/2TJtapN.gif,alt="Snow" style="width:300">
+  </div>
+  <div class="column">
+    <img src=https://imgur.com/FWDp1TM.gif,alt="Forest" style="width:300">
+  </div>
+  <div class="column">
+    <img src=https://imgur.com/zKYRxJr.gif,alt="Mountains" style="width:300">
+  </div>
+</div>
+
 Figure 2: Increasing the number of free nucleotides between adjacent edges enhances structure flexibility -- predictions from oxDNA.
 
 ## Relationship to other software
