@@ -18,9 +18,9 @@ The current (tentative) design strategy is to use one oligonucleotide per face, 
 
 I have also included an option to have a variable number of single stranded DNAs between adjacent faces, which I imagine would control the flexibility of the structure.
 
-<img src="https://i.imgur.com/FOQmBUB.png" width="1000"/>
+<img src="https://i.imgur.com/R2x5KzT.png" width="1000"/>
 
-Figure 1: various DNA Platonic Solids generated with Staplehedra. Each face is a separate DNA strand, and for each polyhedron, one DNA strand has been highlighted. Note that some nucleotides are displaced -- these can be relaxed into their proper positions using gradient descent with atomistic simulation.
+Figure 1: various DNA Platonic Solids generated with Staplehedra. Each face is a separate DNA strand, and for each polyhedron, one DNA strand has been highlighted.
 
 ## Relationship to other software
 
@@ -42,12 +42,8 @@ Staplehedra is essentially a very specific front end for the MRDNA package/proje
 * Generation of PBBs of polyhedra from .ply files, made from circular DNA
 * Relaxation in MRDNA.
 * Controllable numbers of unpaired DNA nucleotides between vertices 
-
-## Stuff that will work this evening
-
 * Strategic placing of strand breaks to create polyhedra from linear DNA
 * Export of sequences to a .csv file
-* Automatic atomistic / oxDNA simulation (broken at the moment)
 
 ## Plans for the immediate future (like early December)
 

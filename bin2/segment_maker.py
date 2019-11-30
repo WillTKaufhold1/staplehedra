@@ -110,6 +110,16 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS):
     mentioned_edges = set()
     face_data = [face(i) for i in faces]
 
+    #NICKS
+    #now we work out where the nicks are so we can choose the correct orientation of our strands.
+    assign_nicks(face_data)
+    nick_locs = []
+    for f in face_data:
+        nick_locs.append(f.nick)
+    mentioned_edges = set(nick_locs)
+    #NICKS
+
+
     for i in face_data:
         for e in i.e:
             if e not in mentioned_edges and e[::-1] not in mentioned_edges:
@@ -144,6 +154,8 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS):
                                        ))
 
     ssDNA_index = 0
+
+
     for f in face_data:
 
         for con in f.connections:
@@ -208,22 +220,18 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS):
                 elif not c1_positive and not c2_positive:
                     segs[c1[::-1]].connect_start3(segs[c2[::-1]].end5,type_="terminal_crossover")
 
-
-    #now we apply the nicks
-    assign_nicks(face_data)
-    '''
-    #apply_nicks(face_data)
+    
+    #NICKS
     for f in face_data:
         nick = f.nick
-        print (nick)
-        print (f.nick in f.e)
-        #I'm not 100% sure this is right...
         if nick in segs:
             segs[nick].add_nick(10,on_fwd_strand=True)
-
         else:
-            segs[nick[::-1]].add_nick(10,on_fwd_strand=False)
-    '''
+            print ('failure')
+    #
+
+
+
     segs_list = [segs[i] for i in segs] + single_stranded_dna
-    
+
     return segs_list
