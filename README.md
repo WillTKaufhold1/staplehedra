@@ -23,9 +23,9 @@ Figure 1: various DNA Platonic Solids generated with Staplehedra. Each face is a
 
 I have also included an option to have a variable number of single stranded DNAs between adjacent faces, which I imagine would control the flexibility of the structure. This may be useful if you are creating macromolecular structures where some feature has an unknown size -- for example, the size of cholesterol micelles in an amphiphilic structure. Alteratively, such a feature may be useful if studying patchy colloids with varying size of patch -- a more flexible DNA polyhedron would correspond to a patchy colloid with a larger patch.
 
-![](https://www.i.imgur.com/jmIlDDL.gif )
-![](https://imgur.com/IxYRXzl.gif)
-![](https://i.imgur.com/jw6tYkx.gif)
+![](assets/run0.gif)
+![](assets/run3.gif)
+![](assets/run9.gif)
 
 
 Figure 2: Increasing the number of free nucleotides between adjacent edges enhances structure flexibility -- predictions from oxDNA.
