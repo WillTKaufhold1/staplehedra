@@ -23,7 +23,7 @@ Figure 1: Arbitrary polyhedra can be designed with staplehedra. Here, various DN
 
 I have also included an option to have a variable number of single stranded DNAs between adjacent faces, which I imagine would control the flexibility of the structure. This may be useful if you are creating macromolecular structures where some feature has an unknown size -- for example, the size of cholesterol micelles in an amphiphilic structure. Alteratively, such a feature may be useful if studying patchy colloids with varying size of patch -- a more flexible DNA polyhedron would correspond to a patchy colloid with a larger patch.
 
-<img src = https://i.imgur.com/ZbwT8ce.gif, width=600,align="left" />
+<img src = "https://i.imgur.com/ZbwT8ce.gif" width=600/>
 
 Figure 2: The flexibility of staplehedra can be tuned by controlling the number of unpaired bases between adjacent helices. Here are two cubes with 0 unpaired nucleotides (left), and 9 unparied nucleotides (right), simulated with oxDNA using the MRDNA interface.
 
