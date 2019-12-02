@@ -42,10 +42,10 @@ Staplehedra is essentially a very specific front end for the MRDNA package/proje
 
 ## Dependencies
 
-* Linux operating system 
+* **Linux operating system** (may also work with OS X, or possibly but not probably the Ubuntu app in the Windows Store)
 * MRDNA
 * Python >= 3.5
-** plyfile 
+* plyfile module for Python
 
 ## Stuff that works now
 
