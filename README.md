@@ -16,16 +16,17 @@ The idea is that you might be planning material synthesis from DNA (for example,
 
 The current (tentative) design strategy is to use one oligonucleotide per face, as illustrated by the lighter colored strand in the tetrahedron below, and place the strand break in that oligonucleotide at a location midway between two vertices. Then repeat for all others faces.
 
-
 <img src="https://i.imgur.com/R2x5KzT.png" width="1000"/>
 
-Figure 1: Arbitrary polyhedra can be designed with staplehedra. Here, various DNA Platonic Solids are illustrated. Each face is a separate DNA strand, and for each polyhedron, one DNA strand has been highlighted.
+**Figure 1**: Arbitrary polyhedra can be designed with staplehedra. Here, various DNA Platonic Solids are illustrated. Each face is a separate DNA strand, and for each polyhedron, one DNA strand has been highlighted.
 
 I have also included an option to have a variable number of single stranded DNAs between adjacent faces, which I imagine would control the flexibility of the structure. This may be useful if you are creating macromolecular structures where some feature has an unknown size -- for example, the size of cholesterol micelles in an amphiphilic structure. Alteratively, such a feature may be useful if studying patchy colloids with varying size of patch -- a more flexible DNA polyhedron would correspond to a patchy colloid with a larger patch.
 
-<img src = "https://i.imgur.com/ZbwT8ce.gif" width=600/>
+<img src = "https://imgur.com/2TJtapN.gif" width=600/>
+<img src = "https://imgur.com/FWDp1TM.gif" width=600/>
+<img src = "https://imgur.com/zKYRxJr.gif" width=600/>
 
-Figure 2: The flexibility of staplehedra can be tuned by controlling the number of unpaired bases between adjacent helices. Here are two cubes with 0 unpaired nucleotides (left), and 9 unparied nucleotides (right), simulated with oxDNA using the MRDNA interface.
+**Figure 2**: The flexibility of staplehedra can be tuned by controlling the number of unpaired bases between adjacent helices. Here are two cubes with 0 unpaired nucleotides (top), and 6 unparied nucleotides (middle), and 9 unpaired nucleotides (bottom), simulated with oxDNA using the MRDNA interface.
 
 
 
