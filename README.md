@@ -22,15 +22,19 @@ The current (tentative) design strategy is to use one oligonucleotide per face, 
 
 I have also included an option to have a variable number of single stranded DNAs between adjacent faces, which I imagine would control the flexibility of the structure. This may be useful if you are creating macromolecular structures where some feature has an unknown size -- for example, the size of cholesterol micelles in an amphiphilic structure. Alteratively, such a feature may be useful if studying patchy colloids with varying size of patch -- a more flexible DNA polyhedron would correspond to a patchy colloid with a larger patch.
 
-<img src = "https://imgur.com/2TJtapN.gif" width=600/>
-<img src = "https://imgur.com/FWDp1TM.gif" width=600/>
-<img src = "https://imgur.com/zKYRxJr.gif" width=600/>
+<img src = "https://imgur.com/2TJtapN.gif" width=300/>
+<img src = "https://imgur.com/FWDp1TM.gif" width=300/>
+<img src = "https://imgur.com/zKYRxJr.gif" width=300/>
 
 **Figure 2**: The flexibility of staplehedra can be tuned by controlling the number of unpaired bases between adjacent helices. Here are two cubes with 0 unpaired nucleotides (top), and 6 unparied nucleotides (middle), and 9 unpaired nucleotides (bottom), simulated with oxDNA using the MRDNA interface.
 
-
-
 ￼   ￼
+<img src = https://imgur.com/6Kvx26m.gif width=300/>
+<img src = https://imgur.com/SNVV66E.gif width=300/>
+<img src = https://imgur.com/aVSEpOm.gif width=300/>
+
+**Figure 3**: Control of flexibility is even more apparent in larger staplehedra, here, the icosahedron. Shown decending are short MD simulations for 0, 3, and 9, free nucleotides between adjacent edges. Note that with 3 free nucleotides, the formation of a re-entrant polyhedron is possible.
+
 
 ## Relationship to other software
 
