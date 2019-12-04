@@ -34,8 +34,13 @@ diffusion 38.57583836644647
 gridFile potentials/null.dx
 
 particle D002
-num 8
+num 4
 diffusion 50.0
+gridFile potentials/null.dx
+
+particle D003
+num 4
+diffusion 34.66876289989815
 gridFile potentials/null.dx
 
 particle S000
@@ -44,8 +49,8 @@ diffusion 111.80339887498948
 gridFile potentials/null.dx
 
 particle S001
-num 8
-diffusion 70.71067811865474
+num 4
+diffusion 67.4199862463242
 gridFile potentials/null.dx
 
 ## Input coordinates
@@ -58,23 +63,29 @@ tabulatedPotential  1
 tabulatedFile 0@0@potentials/DNA-0-nb.D000-D000.dat
 tabulatedFile 0@1@potentials/DNA-0-nb.D000-D001.dat
 tabulatedFile 0@2@potentials/DNA-0-nb.D000-D002.dat
-tabulatedFile 0@3@potentials/DNA-0-nb.D000-S000.dat
-tabulatedFile 0@4@potentials/DNA-0-nb.D000-S001.dat
+tabulatedFile 0@3@potentials/DNA-0-nb.D000-D003.dat
+tabulatedFile 0@4@potentials/DNA-0-nb.D000-S000.dat
+tabulatedFile 0@5@potentials/DNA-0-nb.D000-S001.dat
 tabulatedFile 1@1@potentials/DNA-0-nb.D001-D001.dat
 tabulatedFile 1@2@potentials/DNA-0-nb.D001-D002.dat
-tabulatedFile 1@3@potentials/DNA-0-nb.D001-S000.dat
-tabulatedFile 1@4@potentials/DNA-0-nb.D001-S001.dat
+tabulatedFile 1@3@potentials/DNA-0-nb.D001-D003.dat
+tabulatedFile 1@4@potentials/DNA-0-nb.D001-S000.dat
+tabulatedFile 1@5@potentials/DNA-0-nb.D001-S001.dat
 tabulatedFile 2@2@potentials/DNA-0-nb.D002-D002.dat
-tabulatedFile 2@3@potentials/DNA-0-nb.D002-S000.dat
-tabulatedFile 2@4@potentials/DNA-0-nb.D002-S001.dat
-tabulatedFile 3@3@potentials/DNA-0-nb.S000-S000.dat
-tabulatedFile 3@4@potentials/DNA-0-nb.S000-S001.dat
-tabulatedFile 4@4@potentials/DNA-0-nb.S001-S001.dat
+tabulatedFile 2@3@potentials/DNA-0-nb.D002-D003.dat
+tabulatedFile 2@4@potentials/DNA-0-nb.D002-S000.dat
+tabulatedFile 2@5@potentials/DNA-0-nb.D002-S001.dat
+tabulatedFile 3@3@potentials/DNA-0-nb.D003-D003.dat
+tabulatedFile 3@4@potentials/DNA-0-nb.D003-S000.dat
+tabulatedFile 3@5@potentials/DNA-0-nb.D003-S001.dat
+tabulatedFile 4@4@potentials/DNA-0-nb.S000-S000.dat
+tabulatedFile 4@5@potentials/DNA-0-nb.S000-S001.dat
+tabulatedFile 5@5@potentials/DNA-0-nb.S001-S001.dat
 tabulatedBondFile potentials/gbond-1.008-14.280.dat
-tabulatedBondFile potentials/wlcbond-16.120-12.000.dat
-tabulatedBondFile potentials/wlcbond-16.000-12.000.dat
 tabulatedBondFile potentials/gbond-1.160-12.410.dat
-tabulatedBondFile potentials/gbond-1.693-8.500.dat
+tabulatedBondFile potentials/wlcbond-28.440-12.000.dat
+tabulatedBondFile potentials/gbond-1.100-13.090.dat
+tabulatedBondFile potentials/wlcbond-16.120-12.000.dat
 tabulatedAngleFile potentials/angle-19.806-180.000.dat
 tabulatedAngleFile potentials/angle-21.198-180.000.dat
 inputBonds potentials/DNA-0.bonds.txt

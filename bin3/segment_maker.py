@@ -175,15 +175,8 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,overhangs):
 
         overhang_ss_edges.append(edge(vertex,start_ss,end_ss,overhang=True,bp_overhang=bp,out_orientation=overhangs.iloc[i]['out_side'])) 
 
-    for i in edges:
+    for i in edges + overhang_ds_edges + overhang_ss_edges:
         i.normalize(min_length,LENGTH_OF_SMALLEST)
-    
-    for i in overhang_ds_edges:
-        i.normalize(min_length,LENGTH_OF_SMALLEST) 
-
-    for i in overhang_ss_edges:
-        i.normalize(min_length,LENGTH_OF_SMALLEST) 
-
 
     single_stranded_dna = []
 
@@ -198,7 +191,7 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,overhangs):
                                        ))
 
     #overhangs
-    overhang_segs = {}#you should rethink this datastructure.
+    overhang_segs = {}
     for index, e in enumerate(overhang_ds_edges):
         print (e.nBp, e.nStart_c,e.nStop_c)
         tmp = copy((mrdna.DoubleStrandedSegment(name = 'helix%s'%(index,),
@@ -212,20 +205,14 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,overhangs):
     ss_overhang_segs = {}
     for index, e in enumerate(overhang_ss_edges):
         print (e.nBp, e.nStart_c,e.nStop_c)
-        tmp = copy((mrdna.SingleStrandedSegment(name = 'helix%s'%(index,),
-                                    num_nt = int(e.nBp),
-                                    end_position = list(e.nStop_c),  
-                                    start_position = list(e.nStart_c)
-                                        )))
-        #strand piece already exists error stemming from the next two lines...
-        if e.out_orientation == '5':
+        if e.out_orientation == 5:
             tmp = copy((mrdna.SingleStrandedSegment(name = 'helix%s'%(index,),
                                     num_nt = int(e.nBp),
                                     start_position = list(e.nStart_c),  
                                     end_position = list(e.nStop_c)
                                         )))
         
-        elif e.out_orientation == '3':
+        elif e.out_orientation == 3:
             tmp = copy((mrdna.SingleStrandedSegment(name = 'helix%s'%(index,),
                                     num_nt = int(e.nBp),
                                     start_position = list(e.nStop_c),
@@ -235,6 +222,20 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,overhangs):
             print ('BUG')
         ss_overhang_segs[e.index]= (tmp)
     ssDNA_index = 0
+
+    #CONNECT SS_DNA TO OVERHANGS
+    for ss in overhang_ss_edges:
+        #connected if they have the same index!
+        index = ss.index
+        dsseg = overhang_segs[index]
+        ssseg = ss_overhang_segs[index]
+        #the dsDNA faces outwards
+        
+        if overhang_ss_edges[index].out_orientation == 3:
+            overhang_segs[index].connect_end3(ss_overhang_segs[index])
+        elif overhang_ss_edges[index].out_orientation == 5:
+            overhang_segs[index].connect_end5(ss_overhang_segs[index])
+
 
     for f in face_data:
 
