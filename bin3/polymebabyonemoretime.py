@@ -50,7 +50,6 @@ def __main__():
     FNAME = str(args.plyfile)
     SPACERS = int(args.spacers)
 
-    #read the overhang file...
     overhangfilename = args.overhangfile 
     if overhangfilename is not None:
         overhangs = read_overhang_file(overhangfilename) 

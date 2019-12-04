@@ -1,6 +1,6 @@
-face,overhang,ds_length,ss_length
-0,0,5,10
-1,1,5,10
-2,2,5,10
-3,3,5,10
+face,overhang,ds_length,ss_length,out_side
+0,0,5,10,5
+1,1,5,10,5
+2,2,5,10,3
+3,3,5,10,3
 

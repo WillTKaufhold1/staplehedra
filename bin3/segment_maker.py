@@ -21,13 +21,22 @@ class face():
         self.nick = nick
 
 class edge():
-    def __init__(self,index,start,stop):
+    def __init__(self,index,start,stop,overhang=False,bp_overhang=None,out_orientation=None):
         self.index = index
         self.start = start
         self.stop = stop
         self.rawlen = np.sqrt(np.sum((np.array(stop)-np.array(start))**2))
+        self.overhang = overhang
         
-    def normalize(self,min_length,bp,overhang=False,bp_overhang=None):
+        if overhang:
+            self.bp_overhang = bp_overhang
+        
+        if out_orientation: #lol, this is literally what inheritance is designed to stop...
+            if out_orientation not in ['5','3']:
+                print ('orientation must be one of 5 or 3')
+            self.out_orientation = out_orientation #the ssDNA polarity facing outwards.
+        
+    def normalize(self,min_length,bp):
 
         #bp is the number of base pairs in the shortest length.
 
@@ -42,10 +51,10 @@ class edge():
         self.nStop_c  = self.nStop - vector * compress_factor
         
         self.nLen = np.sqrt(np.sum((np.array(self.nStop)-np.array(self.nStart))**2))
-        if not overhang:
+        if not self.overhang:
             self.nBp = bp
-        elif overhang:
-            self.nBp = bp_overhang
+        elif self.overhang:
+            self.nBp = self.bp_overhang
         else:
             print('Bug')
 
@@ -92,11 +101,8 @@ def get_break_index(face_data):
 def assign_nicks(face_data):
 
     breaks = get_break_index(face_data)
-
     E_vals = [i.e for i in face_data]
-
     edge_dict = {}
-
     for face1,edges_1 in enumerate(E_vals):
         for edge in edges_1:
             for face2,edges_2 in enumerate(E_vals):
@@ -106,9 +112,6 @@ def assign_nicks(face_data):
     for b in breaks:
         face_data[b].apply_nick(edge_dict[(b,breaks[b])])
 
-def break_me(segs,breaks):
-    #segs_list[0].add_nick(34,fwd_strand=True)
-    pass
 
 def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,overhangs):
 
@@ -144,27 +147,43 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,overhangs):
     min_length = np.min([x.rawlen for x in edges])
     max_length = np.max([x.rawlen for x in edges])
 
-    #add the dsDNA overhangs here. the current problem is related to the normalization 
+    #ds overhangs
     overhang_ds_edges = []
+    overhang_ss_edges = []
+
     for i in range(len(overhangs)):
         vertex = overhangs.iloc[i]['overhang'] 
         vertex_location = locs[vertex] 
+        
+        ##ds overhangs
+
         bp = overhangs.iloc[i]['ds_length'] 
         length = bp * min_length / float(LENGTH_OF_SMALLEST) / 3.4 
 
         end = length * np.array(vertex_location) / np.sqrt(np.sum(np.array(vertex_location)**2)) + np.array(vertex_location)
 
         print (bp,length,vertex_location,end)
-        overhang_ds_edges.append(edge(vertex,vertex_location,end))
+        overhang_ds_edges.append(edge(vertex,vertex_location,end,overhang=True,bp_overhang=bp))
 
-    #serious problem with normalization of side lengths...
+        #ss overhangs        
 
+        bp_ss = overhangs.iloc[i]['ss_length'] 
+        length_ss = bp_ss * min_length / float(LENGTH_OF_SMALLEST) / 3.4 
+        
+        start_ss = end 
+        end_ss = end + length_ss * np.array(vertex_location) / np.sqrt(np.sum(np.array(vertex_location)**2))
+
+        overhang_ss_edges.append(edge(vertex,start_ss,end_ss,overhang=True,bp_overhang=bp,out_orientation=overhangs.iloc[i]['out_side'])) 
 
     for i in edges:
         i.normalize(min_length,LENGTH_OF_SMALLEST)
     
     for i in overhang_ds_edges:
-        i.normalize(min_length,LENGTH_OF_SMALLEST,overhang=True,bp_overhang=5) # the 5 is a placeholder...
+        i.normalize(min_length,LENGTH_OF_SMALLEST) 
+
+    for i in overhang_ss_edges:
+        i.normalize(min_length,LENGTH_OF_SMALLEST) 
+
 
     single_stranded_dna = []
 
@@ -189,6 +208,32 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,overhangs):
                                        )))
         overhang_segs[e.index] = tmp
 
+    #overhangs
+    ss_overhang_segs = {}
+    for index, e in enumerate(overhang_ss_edges):
+        print (e.nBp, e.nStart_c,e.nStop_c)
+        tmp = copy((mrdna.SingleStrandedSegment(name = 'helix%s'%(index,),
+                                    num_nt = int(e.nBp),
+                                    end_position = list(e.nStop_c),  
+                                    start_position = list(e.nStart_c)
+                                        )))
+        #strand piece already exists error stemming from the next two lines...
+        if e.out_orientation == '5':
+            tmp = copy((mrdna.SingleStrandedSegment(name = 'helix%s'%(index,),
+                                    num_nt = int(e.nBp),
+                                    start_position = list(e.nStart_c),  
+                                    end_position = list(e.nStop_c)
+                                        )))
+        
+        elif e.out_orientation == '3':
+            tmp = copy((mrdna.SingleStrandedSegment(name = 'helix%s'%(index,),
+                                    num_nt = int(e.nBp),
+                                    start_position = list(e.nStop_c),
+                                    end_position = list(e.nStart_c),  
+                                        )))
+        else:
+            print ('BUG')
+        ss_overhang_segs[e.index]= (tmp)
     ssDNA_index = 0
 
     for f in face_data:
@@ -244,6 +289,7 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,overhangs):
                     segs[c2[::-1]].connect_end5(ss)
 
                 single_stranded_dna.append(ss)
+
             else:
                 if c1_positive and c2_positive:
                     segs[c1].connect_end3(segs[c2].start5,type_="terminal_crossover")
@@ -264,6 +310,36 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,overhangs):
             print ('failure')
 
 
-    segs_list = [segs[i] for i in segs] + single_stranded_dna + [overhang_segs[i] for i in overhang_segs]
+    segs_list = [segs[i] for i in segs] + single_stranded_dna + [overhang_segs[i] for i in overhang_segs] + [ss_overhang_segs[i] for i in ss_overhang_segs]
+
 
     return segs_list
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
