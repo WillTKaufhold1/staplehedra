@@ -1,11 +1,11 @@
 #! /usr/bin/env python3
 import numpy as np
+import pandas as pd
 import mrdna
 import sys
 import argparse
 from copy import deepcopy as copy
 from functools import reduce
-
 from mrdna.coords import readArbdCoords
 from mrdna.simulate import multiresolution_simulation as simulate
 
@@ -13,6 +13,10 @@ from mrdna_parser import make_parser
 import segment_maker
 
 from m13_grabber import m13seq
+
+
+def read_overhang_file(fname):
+    return pd.read_csv(fname)
 
 def get_strand_sequence(strand):
     seg_sequences = []
@@ -45,8 +49,15 @@ def __main__():
     LENGTH_OF_SMALLEST = int(args.bp)
     FNAME = str(args.plyfile)
     SPACERS = int(args.spacers)
-    
-    segs_list = segment_maker.get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS)
+
+    #read the overhang file...
+    overhangfilename = args.overhangfile 
+    if overhangfilename is not None:
+        overhangs = read_overhang_file(overhangfilename) 
+
+    #breakpoint()
+
+    segs_list = segment_maker.get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,overhangs)
     
 
     model = mrdna.SegmentModel(

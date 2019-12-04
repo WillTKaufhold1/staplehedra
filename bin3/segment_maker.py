@@ -27,8 +27,10 @@ class edge():
         self.stop = stop
         self.rawlen = np.sqrt(np.sum((np.array(stop)-np.array(start))**2))
         
-    def normalize(self,min_length,bp):
-        
+    def normalize(self,min_length,bp,overhang=False,bp_overhang=None):
+
+        #bp is the number of base pairs in the shortest length.
+
         compress_factor = 0.1
         
         self.nStart = self.start / min_length * bp * 3.4
@@ -40,7 +42,12 @@ class edge():
         self.nStop_c  = self.nStop - vector * compress_factor
         
         self.nLen = np.sqrt(np.sum((np.array(self.nStop)-np.array(self.nStart))**2))
-        self.nBp = bp
+        if not overhang:
+            self.nBp = bp
+        elif overhang:
+            self.nBp = bp_overhang
+        else:
+            print('Bug')
 
 def get_graph(face_data):
     E_vals = [i.e for i in face_data]
@@ -103,7 +110,7 @@ def break_me(segs,breaks):
     #segs_list[0].add_nick(34,fwd_strand=True)
     pass
 
-def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS):
+def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,overhangs):
 
     locs,faces = read_ply(FNAME)
 
@@ -118,7 +125,6 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS):
         nick_locs.append(f.nick)
     mentioned_edges = set(nick_locs)
     #NICKS
-
 
     for i in face_data:
         for e in i.e:
@@ -138,8 +144,27 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS):
     min_length = np.min([x.rawlen for x in edges])
     max_length = np.max([x.rawlen for x in edges])
 
+    #add the dsDNA overhangs here. the current problem is related to the normalization 
+    overhang_ds_edges = []
+    for i in range(len(overhangs)):
+        vertex = overhangs.iloc[i]['overhang'] 
+        vertex_location = locs[vertex] 
+        bp = overhangs.iloc[i]['ds_length'] 
+        length = bp * min_length / float(LENGTH_OF_SMALLEST) / 3.4 
+
+        end = length * np.array(vertex_location) / np.sqrt(np.sum(np.array(vertex_location)**2)) + np.array(vertex_location)
+
+        print (bp,length,vertex_location,end)
+        overhang_ds_edges.append(edge(vertex,vertex_location,end))
+
+    #serious problem with normalization of side lengths...
+
+
     for i in edges:
         i.normalize(min_length,LENGTH_OF_SMALLEST)
+    
+    for i in overhang_ds_edges:
+        i.normalize(min_length,LENGTH_OF_SMALLEST,overhang=True,bp_overhang=5) # the 5 is a placeholder...
 
     single_stranded_dna = []
 
@@ -153,8 +178,18 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS):
                                 end_position = e.nStop_c
                                        ))
 
-    ssDNA_index = 0
+    #overhangs
+    overhang_segs = {}#you should rethink this datastructure.
+    for index, e in enumerate(overhang_ds_edges):
+        print (e.nBp, e.nStart_c,e.nStop_c)
+        tmp = copy((mrdna.DoubleStrandedSegment(name = 'helix%s'%(index,),
+                                num_bp = int(e.nBp),
+                                start_position = list(e.nStart_c),  
+                                end_position = list(e.nStop_c)
+                                       )))
+        overhang_segs[e.index] = tmp
 
+    ssDNA_index = 0
 
     for f in face_data:
 
@@ -196,7 +231,6 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS):
                     segs[c1[::-1]].connect_start3(ss)
                     segs[c2].connect_start5(ss)
 
-
                 elif not c1_positive and not c2_positive:
 
                     ss = copy(mrdna.SingleStrandedSegment("strand%s"%(ssDNA_index,),
@@ -228,10 +262,8 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS):
             segs[nick].add_nick(10,on_fwd_strand=True)
         else:
             print ('failure')
-    #
 
 
-
-    segs_list = [segs[i] for i in segs] + single_stranded_dna
+    segs_list = [segs[i] for i in segs] + single_stranded_dna + [overhang_segs[i] for i in overhang_segs]
 
     return segs_list

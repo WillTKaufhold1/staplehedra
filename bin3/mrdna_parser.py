@@ -9,6 +9,12 @@ def make_parser():
     parser.add_argument('--spacers',type=int,default=1,help="ssDNA between adjacent edges")
     parser.add_argument('--seqfile',type=str,default="out.seq",help="output file for sequence")
 
+    parser.add_argument('--overhangfile', type=str,default=None, help="input for face-vertex pairs to define overhangs")
+
+
+
+
+
     parser.add_argument('-o','--output-prefix', type=str, default=None,
                         help="Name for your job's output")
     parser.add_argument('-d','--directory', type=str,  default=None,

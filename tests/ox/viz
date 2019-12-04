@@ -1,2 +1,0 @@
-for i in out*; do (cd $i && traj2xyz.py output/DNA-oxdna.dat DNA-oxdna.top ) & done
-

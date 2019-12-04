@@ -1,3 +1,0 @@
-~/anaconda3/bin/python ../../bin2/polymebabyonemoretime.py ../../ply_files/cube.ply -d out --coarse-steps 1e3 --fine-steps 1e3 --oxdna-steps 1e6 --spacers 0   -d out_0 --coarse-steps 1e3 --spacers 0 & 
-~/anaconda3/bin/python ../../bin2/polymebabyonemoretime.py ../../ply_files/cube.ply -d out --coarse-steps 1e3 --fine-steps 1e3 --oxdna-steps 1e6 --spacers 0   -d out_3 --coarse-steps 1e3 --spacers 3 & 
-~/anaconda3/bin/python ../../bin2/polymebabyonemoretime.py ../../ply_files/cube.ply -d out --coarse-steps 1e3 --fine-steps 1e3 --oxdna-steps 1e6 --spacers 0   -d out_9 --coarse-steps 1e3 --spacers 9 & 
