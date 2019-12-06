@@ -44,16 +44,17 @@ Since the purpose of staplehedra is for the development of DNA polyhedron based 
 
 ssDNA overhangs are implemented as illustrated below in the oxDNA graphic. 
 
-<img src = "https://i.imgur.com/dtxN7iH.png" width = 500>
+<img src = https://imgur.com/d9b99CU.png width=600>
 
 **Figure 4**: Single stranded overhangs are implemented as illustrated: the purple strand begins at one vertex, wraps around the entire face and subsequenctly binds to itself. Strand breaks can also be implemented if this results in an excessively long strand of DNA for low error synthesis. Notice that here, the double stranded region of the overhang stacks, so the overhang position is not particularly flexible.
 
 The stacking of the overhanging double stranded region of the sdDNA with the DNA in the frame of the structure may be problematic. It can be very slightly reduced with the use of ssDNA overhangs between the frame and the overhangs, although I suspect excessive sized overhangs will start to disrupt the structure. Ideally one would just have the connectivity without the stacking, using an abasic site -- either an IDT [dSpacer](https://eu.idtdna.com/site/Catalog/Modifications/Product/1202), or an IDT [C3 Spacer](https://eu.idtdna.com/site/Catalog/Modifications/Product/1056). 
 
-
-<img src = ...>
-**Figure 6**: 
-
+https://imgur.com/2Sqodzr
+https://imgur.com/iogcD8R
+<img src =https://imgur.com/iogcD8R.gif width=300/>
+<img src =https://imgur.com/2Sqodzr.gif width=300/>
+**Figure 6**: No free DNA (top), vs 5 nucleotides of free DNA (bottom). Overhang stacking can be slightly reduced through the addition of several nucleotides of ssDNA.
 
 For addition of overhangs in the design, an overhang file can be provied as demonstrated below.
 
