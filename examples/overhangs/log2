@@ -1,0 +1,226 @@
+<class 'segment_maker.FACE'>
+<class 'segment_maker.FACE'>
+<class 'segment_maker.FACE'>
+<class 'segment_maker.FACE'>
+0
+adding overhang here with spacers = 30!
+1
+adding overhang here with spacers = 30!
+2
+adding overhang here with spacers = 30!
+3
+adding overhang here with spacers = 30!
+<Strand S003(155)>
+0
+ACCCTGAACACAGACCGGCGCACGGCATGCTGAGCCTTTTGTCCACCTGCAGTCAGGGAGTACTCTTTTTGCCTAATACGAAGGAGCCGCTGGCCGTCAAGCGACTAAGTTACCGCCAATAGATCACTTACCATGCATTGCTATTCGCCGGTCTG
+<Strand S002(155)>
+1
+ACCTTATCATTCTAACACGGTGAGGCTCAGCGGGAATTTAAAGTTACGTGCAAAAAGAGTACTCCCTGACTTAGAATACTACCGCCAGTGTTCCCTCGATATTAAGGCCAGCATAAATGAACCGCACTGCGGCTTGTCGACCGAACCGTGTTAGA
+<Strand S001(155)>
+2
+ACGGTACTCCCAGAATGTAGAGCGAGACGGTGTTATTTATACTATCCGATTCCCCTAAAGACAGGCGATAATGAACACTGGCGGTAGTATTCTGCGGTAACTTAGTCGCTTGACGCATTCGTACTTGCTAAGGCCCTGGCCGTCTCTACATTCTG
+<Strand S000(155)>
+3
+TTGGAACTACGCTCTGCGGCTCCCTCATTTAGCGTAAAGGAGTCTGGTTGTTATCGCCTGTCTTTAGGGGATCCAGCGGCTCCTTCGTATTAGTTATGCTGGCCTTAATATCGAGGTCGTACGTCGCCCTGTCAAGGCAAGAGATGCCGCAGAGC
+Running ARBD with: /home/wtk23/Documents/phd/tools/arbd/arbd/src/arbd -g 0 DNA-0.bd output/DNA-0
+  –––––––––––––––––––––––––––––––––––––––––––––
+  |    Atomic Resolution Brownian Dynamics    |
+  –––––––––––––––––––––––––––––––––––––––––––––
+Found 1 GPU(s)
+[0] GeForce GTX 1050 (may timeout) | SM 6.1, 1.49GHz, 3.2GB RAM
+Read config file DNA-0.bd
+
+104 particles
+
+Found 10 particle types.
+Loading the potential grids...
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+
+Cutting off the potential from 48 to 50.
+Setting gpuID to 0
+Creating streams
+Copying particle data to GPU 0
+27
+32
+86
+Setting up random number generator with seed 13143281786959814312
+Created Cell Decomposition (97, 97, 97)
+Loading 100 tabulated non-bonded potentials...
+Using 246 non-bonded exclusions
+Loading 12 tabulated bond potentials...
+Loading 5 tabulated angle potentials...
+Running on GPU 0...
+WARNING: GPU may timeout
+
+
+Testing for Nose-Hoover Langevin dynamics
+Configuration: 104 particles | 1 replicas
+
+Step 10000 [10.00% complete | 0.158 ms/step | 109488.625 ns/day]
+Step 20000 [20.00% complete | 0.140 ms/step | 123026.617 ns/day]
+Step 30000 [30.00% complete | 0.138 ms/step | 125046.945 ns/day]
+Step 40000 [40.00% complete | 0.138 ms/step | 125342.367 ns/day]
+Step 50000 [50.00% complete | 0.123 ms/step | 140771.406 ns/day]
+Step 60000 [60.00% complete | 0.121 ms/step | 143345.266 ns/day]
+Step 70000 [70.00% complete | 0.129 ms/step | 134318.125 ns/day]
+Step 80000 [80.00% complete | 0.130 ms/step | 132603.188 ns/day]
+Step 90000 [90.00% complete | 0.119 ms/step | 145583.453 ns/day]
+Step 100000 [100.00% complete | 0.119 ms/step | 145821.922 ns/day]
+Final Step: 100001
+Total Run Time: 13.14s
+Running ARBD with: /home/wtk23/Documents/phd/tools/arbd/arbd/src/arbd -g 0 DNA-1.bd output/DNA-1
+  –––––––––––––––––––––––––––––––––––––––––––––
+  |    Atomic Resolution Brownian Dynamics    |
+  –––––––––––––––––––––––––––––––––––––––––––––
+Found 1 GPU(s)
+[0] GeForce GTX 1050 (may timeout) | SM 6.1, 1.49GHz, 3.2GB RAM
+Read config file DNA-1.bd
+
+632 particles
+
+Found 11 particle types.
+Loading the potential grids...
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+
+Cutting off the potential from 48 to 50.
+Setting gpuID to 0
+Creating streams
+Copying particle data to GPU 0
+27
+32
+86
+Setting up random number generator with seed 15739717725839184110
+Created Cell Decomposition (97, 97, 97)
+Loading 121 tabulated non-bonded potentials...
+Using 4142 non-bonded exclusions
+Loading 14 tabulated bond potentials...
+Loading 13 tabulated angle potentials...
+Loading 12 tabulated dihedral potentials...
+Running on GPU 0...
+WARNING: GPU may timeout
+
+
+Testing for Nose-Hoover Langevin dynamics
+Configuration: 632 particles | 1 replicas
+
+Step 10000 [10.00% complete | 0.171 ms/step | 20250.908 ns/day]
+Step 20000 [20.00% complete | 0.150 ms/step | 23109.977 ns/day]
+Step 30000 [30.00% complete | 0.150 ms/step | 23096.678 ns/day]
+Step 40000 [40.00% complete | 0.150 ms/step | 23001.188 ns/day]
+Step 50000 [50.00% complete | 0.153 ms/step | 22556.994 ns/day]
+Step 60000 [60.00% complete | 0.156 ms/step | 22111.055 ns/day]
+Step 70000 [70.00% complete | 0.150 ms/step | 23081.422 ns/day]
+Step 80000 [80.00% complete | 0.156 ms/step | 22200.066 ns/day]
+Step 90000 [90.00% complete | 0.153 ms/step | 22653.098 ns/day]
+Step 100000 [100.00% complete | 0.167 ms/step | 20664.309 ns/day]
+Final Step: 100001
+Total Run Time: 15.56s
+Averaging coordinates in output/DNA-1.dcd after frame 10
+Running ARBD with: /home/wtk23/Documents/phd/tools/arbd/arbd/src/arbd -g 0 DNA-2.bd output/DNA-2
+  –––––––––––––––––––––––––––––––––––––––––––––
+  |    Atomic Resolution Brownian Dynamics    |
+  –––––––––––––––––––––––––––––––––––––––––––––
+Found 1 GPU(s)
+[0] GeForce GTX 1050 (may timeout) | SM 6.1, 1.49GHz, 3.2GB RAM
+Read config file DNA-2.bd
+
+632 particles
+
+Found 11 particle types.
+Loading the potential grids...
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+Loaded dx potential grid `potentials/null.dx'.
+Grid size 10000 10000 10000.
+
+Cutting off the potential from 48 to 50.
+Setting gpuID to 0
+Creating streams
+Copying particle data to GPU 0
+27
+32
+86
+Setting up random number generator with seed 8679464599988871301
+Created Cell Decomposition (97, 97, 97)
+Loading 121 tabulated non-bonded potentials...
+Using 4142 non-bonded exclusions
+Loading 14 tabulated bond potentials...
+Loading 13 tabulated angle potentials...
+Loading 12 tabulated dihedral potentials...
+Running on GPU 0...
+WARNING: GPU may timeout
+
+
+Testing for Nose-Hoover Langevin dynamics
+Configuration: 632 particles | 1 replicas
+
+Step 10000 [10.00% complete | 0.178 ms/step | 19462.057 ns/day]
+Step 20000 [20.00% complete | 0.149 ms/step | 23207.010 ns/day]
+Step 30000 [30.00% complete | 0.155 ms/step | 22334.684 ns/day]
+Step 40000 [40.00% complete | 0.152 ms/step | 22733.355 ns/day]
+Step 50000 [50.00% complete | 0.154 ms/step | 22377.723 ns/day]
+Step 60000 [60.00% complete | 0.154 ms/step | 22399.900 ns/day]
+Step 70000 [70.00% complete | 0.154 ms/step | 22417.803 ns/day]
+Step 80000 [80.00% complete | 0.148 ms/step | 23312.381 ns/day]
+Step 90000 [90.00% complete | 0.150 ms/step | 23085.740 ns/day]
+Step 100000 [100.00% complete | 0.155 ms/step | 22350.326 ns/day]
+Final Step: 100001
+Total Run Time: 15.50s

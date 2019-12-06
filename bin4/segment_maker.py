@@ -273,53 +273,72 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,overhangs = None):
             c2_positive = c2 in segs
 
             if SPACERS != 0:
-                if c1_positive and c2_positive:
+            
+                if overhang_here:
+                    print ('adding overhang here!')
 
-                    ss = copy(mrdna.SingleStrandedSegment("strand%s"%(ssDNA_index,),
-                        start_position = segs[c1].end_position ,
-                        end_position =   segs[c2].start_position,
-                        num_nt = SPACERS))
+                    if c1_positive:
+                        segs[c1].connect_end3(overhang_segs[vertex_index].start5, type_="terminal_crossover")
+                        overhang_segs[vertex_index].connect_start5(segs[c1].end3, type_="terminal_crossover")
+                    else:
+                        segs[c1[::-1]].connect_start3(overhang_segs[vertex_index].start5, type_="terminal_crossover")
+                        overhang_segs[vertex_index].connect_start5(segs[c1[::-1]].start3, type_="terminal_crossover")
+                    if c2_positive:
+                        segs[c2].connect_start5(overhang_segs[vertex_index].start3, type_="terminal_crossover")
+                        overhang_segs[vertex_index].connect_start3(segs[c2].start5, type_="terminal_crossover")
+                    else:
+                        segs[c2[::-1]].connect_end5(overhang_segs[vertex_index].start3, type_="terminal_crossover")
+                        overhang_segs[vertex_index].connect_start3(segs[c2[::-1]].end5, type_="terminal_crossover") 
 
-                    segs[c1].connect_end3(ss)
-                    segs[c2].connect_start5(ss)
+                else:
+                    
+                    if c1_positive and c2_positive:
+                        ss = copy(mrdna.SingleStrandedSegment("strand%s"%(ssDNA_index,),
+                            start_position = segs[c1].end_position ,
+                            end_position =   segs[c2].start_position,
+                            num_nt = SPACERS))
 
-                elif c1_positive and not c2_positive:
-                    ss = copy(mrdna.SingleStrandedSegment("strand%s"%(ssDNA_index,),
-                        start_position = segs[c1].end_position ,
-                        end_position =   segs[c2[::-1]].end_position,
-                        num_nt = SPACERS))
+                        segs[c1].connect_end3(ss)
+                        segs[c2].connect_start5(ss)
 
-                    segs[c1].connect_end3(ss)
-                    segs[c2[::-1]].connect_end5(ss)
+                    elif c1_positive and not c2_positive:
+                        ss = copy(mrdna.SingleStrandedSegment("strand%s"%(ssDNA_index,),
+                            start_position = segs[c1].end_position ,
+                            end_position =   segs[c2[::-1]].end_position,
+                            num_nt = SPACERS))
 
-                elif not c1_positive and c2_positive:
+                        segs[c1].connect_end3(ss)
+                        segs[c2[::-1]].connect_end5(ss)
 
-                    ss = copy(mrdna.SingleStrandedSegment("strand%s"%(ssDNA_index,),
-                        start_position = segs[c1[::-1]].start_position ,
-                        end_position =   segs[c2].start_position,
-                        num_nt = SPACERS))
+                    elif not c1_positive and c2_positive:
 
-                    segs[c1[::-1]].connect_start3(ss)
-                    segs[c2].connect_start5(ss)
+                        ss = copy(mrdna.SingleStrandedSegment("strand%s"%(ssDNA_index,),
+                            start_position = segs[c1[::-1]].start_position ,
+                            end_position =   segs[c2].start_position,
+                            num_nt = SPACERS))
 
-                elif not c1_positive and not c2_positive:
+                        segs[c1[::-1]].connect_start3(ss)
+                        segs[c2].connect_start5(ss)
 
-                    ss = copy(mrdna.SingleStrandedSegment("strand%s"%(ssDNA_index,),
-                        start_position = segs[c1[::-1]].start_position ,
-                        end_position =   segs[c2[::-1]].end_position,
-                        num_nt = SPACERS))      
+                    elif not c1_positive and not c2_positive:
 
-                    #segs[c1[::-1]].connect_start3(segs[c2[::-1]].end5)
+                        ss = copy(mrdna.SingleStrandedSegment("strand%s"%(ssDNA_index,),
+                            start_position = segs[c1[::-1]].start_position ,
+                            end_position =   segs[c2[::-1]].end_position,
+                            num_nt = SPACERS))      
 
-                    segs[c1[::-1]].connect_start3(ss)
-                    segs[c2[::-1]].connect_end5(ss)
+                        #segs[c1[::-1]].connect_start3(segs[c2[::-1]].end5)
 
-                single_stranded_dna.append(ss)
+                        segs[c1[::-1]].connect_start3(ss)
+                        segs[c2[::-1]].connect_end5(ss)
+
+                    single_stranded_dna.append(ss)
+
+
 
             else:
                 #let's also add connectivity to the appropriate overhang...
                 if overhang_here:
-                    print ('adding overhang!')
 
                     if c1_positive:
                         segs[c1].connect_end3(overhang_segs[vertex_index].start5, type_="terminal_crossover")
@@ -359,33 +378,8 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,overhangs = None):
     else:
         segs_list = [segs[i] for i in segs] + single_stranded_dna
 
-    breakpoint()
     return segs_list
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
