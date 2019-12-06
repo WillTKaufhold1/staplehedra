@@ -44,7 +44,7 @@ Since the purpose of staplehedra is for the development of DNA polyhedron based 
 
 ssDNA overhangs are implemented as illustrated below in the oxDNA graphic. 
 
-<img src = "https://i.imgur.com/dtxN7iH.png" width = 300>
+<img src = "https://i.imgur.com/dtxN7iH.png" width = 500>
 
 **Figure 4**: Single stranded overhangs are implemented as illustrated: the purple strand begins at one vertex, wraps around the entire face and subsequenctly binds to itself. Strand breaks can also be implemented if this results in an excessively long strand of DNA for low error synthesis. Notice that here, the double stranded region of the overhang stacks, so the overhang position is not particularly flexible.
 

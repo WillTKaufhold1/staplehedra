@@ -224,3 +224,6 @@ Step 90000 [90.00% complete | 0.150 ms/step | 23085.740 ns/day]
 Step 100000 [100.00% complete | 0.155 ms/step | 22350.326 ns/day]
 Final Step: 100001
 Total Run Time: 15.50s
+Averaging coordinates in output/DNA-2.dcd after frame 10
+Running oxDNA with: /home/wtk23/Documents/phd/tools/oxdna-gpu/oxdna-code/oxDNA/build/bin/oxDNA DNA-oxdna-min-input
+Running oxDNA with: /home/wtk23/Documents/phd/tools/oxdna-gpu/oxdna-code/oxDNA/build/bin/oxDNA DNA-oxdna-input
