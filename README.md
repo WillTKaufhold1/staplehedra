@@ -50,8 +50,6 @@ ssDNA overhangs are implemented as illustrated below in the oxDNA graphic.
 
 The stacking of the overhanging double stranded region of the sdDNA with the DNA in the frame of the structure may be problematic. It can be very slightly reduced with the use of ssDNA overhangs between the frame and the overhangs, although I suspect excessive sized overhangs will start to disrupt the structure. Ideally one would just have the connectivity without the stacking, using an abasic site -- either an IDT [dSpacer](https://eu.idtdna.com/site/Catalog/Modifications/Product/1202), or an IDT [C3 Spacer](https://eu.idtdna.com/site/Catalog/Modifications/Product/1056). 
 
-https://imgur.com/2Sqodzr
-https://imgur.com/iogcD8R
 <img src =https://imgur.com/iogcD8R.gif width=300/>
 <img src =https://imgur.com/2Sqodzr.gif width=300/>
 **Figure 6**: No free DNA (top), vs 5 nucleotides of free DNA (bottom). Overhang stacking can be slightly reduced through the addition of several nucleotides of ssDNA.
@@ -61,7 +59,7 @@ For addition of overhangs in the design, an overhang file can be provied as demo
 ```bash 
 --overhangfile overhangfile.overhangs 
 ```
-
+An example overhangfile.overhangs is shown below.
 ```
 face,overhang,ds_length,ss_length,out_side,ss_extra
 0,0,10,10,5,5
