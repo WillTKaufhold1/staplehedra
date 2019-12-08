@@ -116,7 +116,7 @@ def assign_nicks(face_data):
         face_data[b].apply_nick(edge_dict[(b,breaks[b])])
 
 
-def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,overhangs = None):
+def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,nicks=1,overhangs = None):
 
     locs,faces = read_ply(FNAME)
 
@@ -417,7 +417,6 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,overhangs = None):
 
         
     #NICKS
-    nicks = False
     if nicks == True:
         for f in face_data:
             nick = f.nick

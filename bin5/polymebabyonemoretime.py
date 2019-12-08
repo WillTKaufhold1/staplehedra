@@ -57,7 +57,7 @@ def __main__():
 
     #breakpoint()
 
-    segs_list = segment_maker.get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,overhangs = overhangs)
+    segs_list = segment_maker.get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,nicks = args.nicks,overhangs = overhangs)
     
 
     model = mrdna.SegmentModel(
