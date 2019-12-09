@@ -397,6 +397,7 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,nicks=1,overhangs = None):
                 #let's also add connectivity to the appropriate overhang...
 
                 if overhang_here:
+                
 
                     #TODO: need to add additional spacers here!
                     if ss_here == 0:
@@ -479,6 +480,13 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,nicks=1,overhangs = None):
                 segs[nick].add_nick(10,on_fwd_strand=True)
             else:
                 print ('failure')
+
+    #make sure that all the ssDNA has the sequence 'TTT...'
+
+
+
+    for s in single_stranded_dna:
+        s.sequence = s.num_nt * 'T'
 
     if overhangs is not None:
         segs_list = [segs[i] for i in segs] + single_stranded_dna + [overhang_segs[i] for i in overhang_segs] + [ss_overhang_segs[i] for i in ss_overhang_segs]

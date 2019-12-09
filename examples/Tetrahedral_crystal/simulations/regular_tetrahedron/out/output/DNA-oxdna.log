@@ -1,0 +1,99 @@
+INFO: seeding the RNG with 84078
+INFO: Initializing backend 
+INFO: Backend precision: mixed
+INFO: Simulation type: MD
+INFO: The generator will try to take into account bonded interactions by choosing distances between bonded neighbours no larger than 2.000000
+INFO: Running Debye-Huckel at salt concentration =  0.5
+INFO: Using different widths for major and minor grooves
+INFO: CUDA device not specified
+INFO: CUDA sort_every not specified, using 0
+INFO: The generator will try to take into account bonded interactions by choosing distances between bonded neighbours no larger than 2.000000
+INFO: pid: 10560
+INFO: Using a maximum backbone force of 5  (the corresponding mbf_xmax is 0.120156) and a far value of 0.04
+DEBUG: Debye-Huckel parameters: Q=0.054300, lambda_0=0.361645, lambda=0.503714, r_high=1.511142, cutoff=3.229510
+DEBUG: Debye-Huckel parameters: debye_huckel_RC=2.266712e+00, debye_huckel_B=3.133725e-03
+INFO: The Debye length at this temperature and salt concentration is 0.503714
+INFO: (Cells.cpp) N_cells_side: 10, 10, 10; rcut=3.22951, IS_MC: 0
+INFO: N: 372
+INFO: Using randomly distributed velocities
+INFO: Initial kinetic energy: 108.646873
+INFO: Choosing device automatically
+INFO: Computer has 1 devices
+INFO:  - Trying device 0
+INFO:  -- device 0 has properties 6.1
+INFO:  -- using device 0
+INFO:  --- Running on device 0
+INFO: Using a maximum backbone force of 5  (the corresponding mbf_xmax is 0.120156) and a far value of 0.04
+INFO: threads_per_block was not specified or set to 0. The default value (64) will be used
+INFO: Allocated CUDA memory: 0.07 MBs
+INFO: SVN CODE VERSION: 6943M
+INFO: COMPILED ON: 09/02/19
+INFO: diffusion fixed.. -496.426 -496.425
+INFO: Fix diffusion went too far... -497.823, -497.825, 0, (0.00119019>0.000497823)
+INFO:  *** Fix diffusion hopeless... -497.823, -497.824, 0, (0.000793457>0.000497823)
+INFO: diffusion fixed.. -504.388 -504.388
+INFO: Fix diffusion went too far... -500.671, -500.67, 0, (0.00128174>0.000500671)
+INFO:  *** Fix diffusion hopeless... -500.671, -500.667, 0, (0.00402832>0.000500671)
+INFO: diffusion fixed.. -503.281 -503.28
+INFO: Fix diffusion went too far... -502.052, -502.053, 0, (0.000701904>0.000502052)
+INFO:  *** Fix diffusion hopeless... -502.052, -502.053, 0, (0.0012207>0.000502052)
+INFO: diffusion fixed.. -499.297 -499.296
+INFO: Fix diffusion went too far... -491.956, -491.957, 0, (0.000854492>0.000491956)
+INFO:  *** Fix diffusion hopeless... -491.956, -491.962, 0, (0.0062561>0.000491956)
+INFO: diffusion fixed.. -501.826 -501.825
+INFO: diffusion fixed.. -494.243 -494.242
+INFO: Fix diffusion went too far... -509.461, -509.461, 0, (0.000518799>0.000509461)
+INFO:  *** Fix diffusion hopeless... -509.461, -509.456, 0, (0.00509644>0.000509461)
+INFO: diffusion fixed.. -495.994 -495.994
+INFO: Fix diffusion went too far... -502.518, -502.517, 0, (0.00119019>0.000502518)
+INFO:  *** Fix diffusion hopeless... -502.518, -502.515, 0, (0.00317383>0.000502518)
+INFO: diffusion fixed.. -495.023 -495.023
+INFO: diffusion fixed.. -502.084 -502.083
+INFO: diffusion fixed.. -506.036 -506.036
+INFO: diffusion fixed.. -506.707 -506.707
+INFO: diffusion fixed.. -505.392 -505.391
+INFO: Fix diffusion went too far... -506.104, -506.103, 0, (0.000946045>0.000506104)
+INFO:  *** Fix diffusion hopeless... -506.104, -506.106, 0, (0.00161743>0.000506104)
+INFO: diffusion fixed.. -504.159 -504.159
+INFO: Fix diffusion went too far... -513.745, -513.744, 0, (0.000854492>0.000513745)
+INFO:  *** Fix diffusion hopeless... -513.745, -513.75, 0, (0.00537109>0.000513745)
+INFO: diffusion fixed.. -498.582 -498.581
+INFO: Fix diffusion went too far... -507.095, -507.094, 0, (0.00106812>0.000507095)
+INFO: diffusion PARTIALLY fixed
+INFO: diffusion fixed.. -501.585 -501.584
+INFO: Fix diffusion went too far... -514.383, -514.383, 0, (0.000549316>0.000514383)
+INFO:  *** Fix diffusion hopeless... -514.383, -514.384, 0, (0.0010376>0.000514383)
+INFO: diffusion fixed.. -506.587 -506.587
+INFO: diffusion fixed.. -514.177 -514.176
+INFO: diffusion fixed.. -505.748 -505.748
+INFO: diffusion fixed.. -493.3 -493.3
+INFO: diffusion fixed.. -496.182 -496.182
+INFO: diffusion fixed.. -496.491 -496.49
+INFO: diffusion fixed.. -510.309 -510.309
+INFO: diffusion fixed.. -508.33 -508.329
+INFO: diffusion fixed.. -508.686 -508.686
+INFO: Fix diffusion went too far... -505.064, -505.063, 0, (0.000640869>0.000505064)
+INFO:  *** Fix diffusion hopeless... -505.064, -505.06, 0, (0.00393677>0.000505064)
+INFO: diffusion fixed.. -505.878 -505.878
+INFO: diffusion fixed.. -508.574 -508.574
+INFO: diffusion fixed.. -503.841 -503.841
+INFO: diffusion fixed.. -511.994 -511.993
+INFO: # Caught SIGNAL 2; setting stop = 1
+
+
+INFO: Total Running Time: 2371.52 s, per step: 0.606943 ms
+INFO: Timings, in seconds, by Timer (total, own, spent in children)
+> SimBackend                       2371.521 (100.0%)       21.877 (  0.9%)     2349.644 ( 99.1%)
+***> Hilbert sorting                 10.003 (  0.4%)       10.003 (  0.4%)        0.000 (  0.0%)
+***> Lists                           17.317 (  0.7%)       17.317 (  0.7%)        0.000 (  0.0%)
+***> Thermostat                      20.185 (  0.9%)       20.185 (  0.9%)        0.000 (  0.0%)
+***> Forces                        2031.205 ( 85.6%)     2031.205 ( 85.6%)        0.000 (  0.0%)
+***> First Step                     270.934 ( 11.4%)      270.934 ( 11.4%)        0.000 (  0.0%)
+
+INFO: END OF THE SIMULATION, everything went OK!
+INFO: Lists updated 3907318 times (every ~1.000000 steps)
+INFO: Aggregated I/O statistics (set debug=1 for file-wise information)
+	 75.797 MB written to files
+	  0.000  B written to stdout/stderr
+	For a total of    0.032 MB/s
+
