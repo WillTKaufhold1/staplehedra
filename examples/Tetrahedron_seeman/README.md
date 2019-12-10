@@ -21,9 +21,11 @@ Sequence generation and molecular simulation can be generated with the following
  ~/anaconda3/bin/python ../../../bin6/polymebabyonemoretime.py ../plyfiles/regular_tetrahedron.ply --coarse-steps 1e5 --fine-steps 1e5 --oxdna-steps 1e7 -d out --spacers 0 --bp 20 --nicks 1
 ```
 
-### Agarose gel
+### DLS
 
-### Multi Angle Dynamic Light Scattering (DLS)
+<img src = https://imgur.com/VKQkLFW.png width = 300>
+*Figure 2* : DLS (Zetasizer Ultra) data at 588 nM structure concentration. Indication of a  
+
 
 ### A260 curves
 

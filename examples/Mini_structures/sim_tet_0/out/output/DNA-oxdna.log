@@ -1,0 +1,46 @@
+INFO: seeding the RNG with 73699
+INFO: Initializing backend 
+INFO: Backend precision: mixed
+INFO: Simulation type: MD
+INFO: The generator will try to take into account bonded interactions by choosing distances between bonded neighbours no larger than 2.000000
+INFO: Running Debye-Huckel at salt concentration =  0.5
+INFO: Using different widths for major and minor grooves
+INFO: CUDA device not specified
+INFO: CUDA sort_every not specified, using 0
+INFO: The generator will try to take into account bonded interactions by choosing distances between bonded neighbours no larger than 2.000000
+INFO: pid: 5562
+INFO: Using a maximum backbone force of 5  (the corresponding mbf_xmax is 0.120156) and a far value of 0.04
+DEBUG: Debye-Huckel parameters: Q=0.054300, lambda_0=0.361645, lambda=0.503714, r_high=1.511142, cutoff=3.229510
+DEBUG: Debye-Huckel parameters: debye_huckel_RC=2.266712e+00, debye_huckel_B=3.133725e-03
+INFO: The Debye length at this temperature and salt concentration is 0.503714
+INFO: (Cells.cpp) N_cells_side: 7, 7, 7; rcut=3.22951, IS_MC: 0
+INFO: N: 132
+INFO: Using randomly distributed velocities
+INFO: Initial kinetic energy: 37.094559
+INFO: Choosing device automatically
+INFO: Computer has 1 devices
+INFO:  - Trying device 0
+INFO:  -- device 0 has properties 6.1
+INFO:  -- using device 0
+INFO:  --- Running on device 0
+INFO: Using a maximum backbone force of 5  (the corresponding mbf_xmax is 0.120156) and a far value of 0.04
+INFO: threads_per_block was not specified or set to 0. The default value (64) will be used
+INFO: Allocated CUDA memory: 0.02 MBs
+INFO: SVN CODE VERSION: 6943M
+INFO: COMPILED ON: 09/02/19
+INFO: Fix diffusion went too far... -152.62, -152.62, 0, (0.000167847>0.00015262)
+INFO:  *** Fix diffusion hopeless... -152.62, -152.622, 0, (0.00160217>0.00015262)
+INFO: Fix diffusion went too far... -137.147, -137.147, 0, (0.000137329>0.000137147)
+INFO:  *** Fix diffusion hopeless... -137.147, -137.147, 0, (0.000579834>0.000137147)
+INFO: diffusion fixed.. -103.825 -103.825
+INFO: Fix diffusion went too far... -78.6719, -78.6716, 0, (0.000305176>7.86719e-05)
+INFO:  *** Fix diffusion hopeless... -78.6719, -78.6726, 0, (0.000686646>7.86719e-05)
+INFO: diffusion fixed.. -64.8133 -64.8132
+INFO: Fix diffusion went too far... -47.7697, -47.7696, 0, (5.34058e-05>4.77697e-05)
+INFO:  *** Fix diffusion hopeless... -47.7697, -47.7698, 0, (0.000175476>4.77697e-05)
+INFO: Fix diffusion went too far... -35.3298, -35.3297, 0, (4.95911e-05>3.53298e-05)
+INFO:  *** Fix diffusion hopeless... -35.3298, -35.3412, 0, (0.0114326>3.53298e-05)
+INFO: Fix diffusion went too far... -22.404, -22.404, 0, (4.76837e-05>2.2404e-05)
+INFO:  *** Fix diffusion hopeless... -22.404, -22.4036, 0, (0.000453949>2.2404e-05)
+INFO: Fix diffusion went too far... -8.76244, -8.7624, 0, (3.43323e-05>8.76244e-06)
+INFO:  *** Fix diffusion hopeless... -8.76244, -8.76079, 0, (0.00164318>8.76244e-06)

@@ -1,0 +1,80 @@
+
+timestep 4e-05
+steps 1000001
+numberFluct 0                   # deprecated
+
+interparticleForce 1            # other values deprecated
+fullLongRange 0                 # deprecated
+temperature 291
+
+outputPeriod 10000
+## Energy doesn't actually get printed!
+outputEnergyPeriod 10000
+outputFormat dcd
+
+## Infrequent domain decomposition because this kernel is still very slow
+decompPeriod 10000
+cutoff 50
+pairlistDistance 2
+
+origin -2500.0 -2500.0 -2500.0
+systemSize 5000 5000 5000
+
+
+
+
+particle D000
+num 24
+diffusion 111.80339887498948
+gridFile potentials/null.dx
+
+particle D001
+num 120
+diffusion 79.05694150420948
+gridFile potentials/null.dx
+
+particle O000
+num 24
+diffusion 120
+gridFile potentials/null.dx
+
+particle O001
+num 120
+diffusion 79.05694150420948
+gridFile potentials/null.dx
+
+## Input coordinates
+inputParticles DNA-2.particles.txt
+
+
+## Interaction potentials
+tabulatedPotential  1
+## The i@j@file syntax means particle type i will have NB interactions with particle type j using the potential in file
+tabulatedFile 0@0@potentials/DNA-2-nb.D000-D000.dat
+tabulatedFile 0@1@potentials/DNA-2-nb.D000-D001.dat
+tabulatedFile 0@2@potentials/DNA-2-nb.D000-O000.dat
+tabulatedFile 0@3@potentials/DNA-2-nb.D000-O001.dat
+tabulatedFile 1@1@potentials/DNA-2-nb.D001-D001.dat
+tabulatedFile 1@2@potentials/DNA-2-nb.D001-O000.dat
+tabulatedFile 1@3@potentials/DNA-2-nb.D001-O001.dat
+tabulatedFile 2@2@potentials/DNA-2-nb.O000-O000.dat
+tabulatedFile 2@3@potentials/DNA-2-nb.O000-O001.dat
+tabulatedFile 3@3@potentials/DNA-2-nb.O001-O001.dat
+tabulatedBondFile potentials/bond-4.000-18.500.dat
+tabulatedBondFile potentials/bond-30.000-1.500.dat
+tabulatedBondFile potentials/gbond-5.644-2.550.dat
+tabulatedBondFile potentials/gbond-4.233-3.400.dat
+tabulatedAngleFile potentials/angle-62.622-180.000.dat
+tabulatedAngleFile potentials/angle-41.748-90.000.dat
+tabulatedAngleFile potentials/angle-71.585-180.000.dat
+tabulatedAngleFile potentials/angle-55.686-90.000.dat
+tabulatedDihedralFile potentials/dihedral-21.522--120.000.dat
+tabulatedDihedralFile potentials/dihedral-23.862-180.000.dat
+tabulatedDihedralFile potentials/dihedral-20.874-180.000.dat
+tabulatedDihedralFile potentials/dihedral-21.522-120.000.dat
+tabulatedDihedralFile potentials/dihedral-102.049-25.862.dat
+tabulatedDihedralFile potentials/dihedral-76.537-34.483.dat
+inputBonds potentials/DNA-2.bonds.txt
+inputAngles potentials/DNA-2.angles.txt
+inputDihedrals potentials/DNA-2.dihedrals.txt
+inputExcludes potentials/DNA-2.exculsions.txt

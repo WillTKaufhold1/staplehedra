@@ -477,13 +477,11 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,nicks=1,overhangs = None):
         for f in face_data:
             nick = f.nick
             if nick in segs:
-                segs[nick].add_nick(10,on_fwd_strand=True)
+                segs[nick].add_nick(5,on_fwd_strand=True)
             else:
                 print ('failure')
 
     #make sure that all the ssDNA has the sequence 'TTT...'
-
-
 
     for s in single_stranded_dna:
         s.sequence = s.num_nt * 'T'
