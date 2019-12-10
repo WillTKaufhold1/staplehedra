@@ -18,13 +18,15 @@ DNA oligos are synthesized predominantly via phosphoramidite chemistry. The dire
 Sequence generation and molecular simulation can be generated with the following command, run in the simulation directory.
 
 ```bash
- ~/anaconda3/bin/python ../../../bin6/polymebabyonemoretime.py ../plyfiles/regular_tetrahedron.ply --coarse-steps 1e5 --fine-steps 1e5 --oxdna-steps 1e7 -d out --spacers 0 --bp 20 --nicks 1
+ ~/anaconda3/bin/python ../../../bin6/polymebabyonemoretime.py ../plyfiles/regular_tetrahedron.ply --coarse-steps 1e5 --fine-steps 1e5 --oxdna-steps 1e7 -d out --spacers 0 --bp 21 --nicks 1
 ```
 
 ### DLS
 
 <img src = https://imgur.com/VKQkLFW.png width = 300>
-*Figure 2* : DLS (Zetasizer Ultra) data at 588 nM structure concentration. Indication of a  
+        *Figure 2* : DLS (Zetasizer Ultra) data at 588 nM structure concentration. Monodisperse peak indicates formation of structure, of hydrodynamic diameter 20 nm.
+
+Our actual structure has an edge length of 21 bp, which is approximately 6 nm. The physical diameter of the wireframe structure would then be close to 10 nm, so this large monodisperse peak is somewhat surprising... 
 
 
 ### A260 curves
