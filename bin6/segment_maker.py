@@ -48,7 +48,9 @@ class edge():
         
         self.nStart = self.start / min_length * bp * 3.4
         self.nStop = self.stop / min_length * bp * 3.4
-        
+
+
+
         #a bit of compression to avoid collisions... TODO: be more strategic...
         vector = self.nStop-self.nStart
         self.nStart_c = self.nStart + vector * compress_factor 
@@ -56,7 +58,7 @@ class edge():
         
         self.nLen = np.sqrt(np.sum((np.array(self.nStop)-np.array(self.nStart))**2))
         if not self.overhang:
-            self.nBp = bp
+            self.nBp = int(bp*self.rawlen / min_length)
         elif self.overhang:
             self.nBp = self.bp_overhang
         else:
@@ -167,7 +169,6 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,nicks=1,overhangs = None):
         for i in range(len(overhangs)):
             vertex = overhangs.iloc[i]['overhang'] 
             vertex_location = locs[vertex] 
-            ##ds overhangs
             bp = overhangs.iloc[i]['ds_length'] 
             length = bp * min_length / float(LENGTH_OF_SMALLEST) / 3.4 
             end = length * np.array(vertex_location) / np.sqrt(np.sum(np.array(vertex_location)**2)) + np.array(vertex_location)
@@ -245,7 +246,7 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,nicks=1,overhangs = None):
                 dsseg = overhang_segs[index]
                 ssseg = ss_overhang_segs[index]
                 #the dsDNA faces outwards
-            
+                breakpoint() 
                 if overhang_ss_edges[index].out_orientation == 3:
                     overhang_segs[index].connect_end3(ss_overhang_segs[index])
                 elif overhang_ss_edges[index].out_orientation == 5:
@@ -473,11 +474,13 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,nicks=1,overhangs = None):
 
         
     #NICKS
-    if nicks == True:
+    #TODO: just have nicks on non-overhang sides...
+    if nicks:
+        print ("adding nicks!")
         for f in face_data:
             nick = f.nick
             if nick in segs:
-                segs[nick].add_nick(5,on_fwd_strand=True)
+                segs[nick].add_nick(10,on_fwd_strand=True)
             else:
                 print ('failure')
 

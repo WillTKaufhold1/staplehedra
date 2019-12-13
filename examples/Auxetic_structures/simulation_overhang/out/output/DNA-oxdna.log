@@ -1,0 +1,52 @@
+INFO: seeding the RNG with 33019
+INFO: Initializing backend 
+INFO: Backend precision: mixed
+INFO: Simulation type: MD
+INFO: The generator will try to take into account bonded interactions by choosing distances between bonded neighbours no larger than 2.000000
+INFO: Running Debye-Huckel at salt concentration =  0.5
+INFO: Using different widths for major and minor grooves
+INFO: CUDA device not specified
+INFO: CUDA sort_every not specified, using 0
+INFO: The generator will try to take into account bonded interactions by choosing distances between bonded neighbours no larger than 2.000000
+INFO: pid: 14650
+INFO: Using a maximum backbone force of 5  (the corresponding mbf_xmax is 0.120156) and a far value of 0.04
+DEBUG: Debye-Huckel parameters: Q=0.054300, lambda_0=0.361645, lambda=0.503714, r_high=1.511142, cutoff=3.229510
+DEBUG: Debye-Huckel parameters: debye_huckel_RC=2.266712e+00, debye_huckel_B=3.133725e-03
+INFO: The Debye length at this temperature and salt concentration is 0.503714
+INFO: (Cells.cpp) N_cells_side: 15, 15, 15; rcut=3.22951, IS_MC: 0
+INFO: N: 1448
+INFO: Using randomly distributed velocities
+INFO: Initial kinetic energy: 415.644897
+INFO: Choosing device automatically
+INFO: Computer has 1 devices
+INFO:  - Trying device 0
+INFO:  -- device 0 has properties 6.1
+INFO:  -- using device 0
+INFO:  --- Running on device 0
+INFO: Using a maximum backbone force of 5  (the corresponding mbf_xmax is 0.120156) and a far value of 0.04
+INFO: threads_per_block was not specified or set to 0. The default value (64) will be used
+INFO: Allocated CUDA memory: 0.25 MBs
+INFO: SVN CODE VERSION: 6943M
+INFO: COMPILED ON: 09/02/19
+INFO: diffusion fixed.. -2099.76 -2099.76
+INFO: Fix diffusion went too far... -2018.76, -2018.76, 0, (0.00268555>0.00201876)
+INFO:  *** Fix diffusion hopeless... -2018.76, -2018.76, 0, (0.00219727>0.00201876)
+INFO: # Caught SIGNAL 2; setting stop = 1
+
+
+INFO: Total Running Time: 294.811 s, per step: 1.41427 ms
+INFO: Timings, in seconds, by Timer (total, own, spent in children)
+> SimBackend                        294.811 (100.0%)        1.148 (  0.4%)      293.663 ( 99.6%)
+***> Hilbert sorting                  0.531 (  0.2%)        0.531 (  0.2%)        0.000 (  0.0%)
+***> Lists                            0.932 (  0.3%)        0.932 (  0.3%)        0.000 (  0.0%)
+***> Thermostat                       1.003 (  0.3%)        1.003 (  0.3%)        0.000 (  0.0%)
+***> Forces                         283.401 ( 96.1%)      283.401 ( 96.1%)        0.000 (  0.0%)
+***> First Step                       7.797 (  2.6%)        7.797 (  2.6%)        0.000 (  0.0%)
+
+INFO: END OF THE SIMULATION, everything went OK!
+INFO: Lists updated 208455 times (every ~1.000000 steps)
+INFO: Aggregated I/O statistics (set debug=1 for file-wise information)
+	 15.515 MB written to files
+	  0.000  B written to stdout/stderr
+	For a total of   0.0526 MB/s
+

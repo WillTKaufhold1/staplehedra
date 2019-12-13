@@ -20,6 +20,21 @@ Sequence generation and molecular simulation can be generated with the following
 ```bash
  ~/anaconda3/bin/python ../../../bin6/polymebabyonemoretime.py ../plyfiles/regular_tetrahedron.ply --coarse-steps 1e5 --fine-steps 1e5 --oxdna-steps 1e7 -d out --spacers 0 --bp 21 --nicks 1
 ```
+### Sequences
+
+The sequences are:
+
+```
+AATACTTCATCGACAGTTTCGGGCGATAAATCCAGCCAATGGGCAAGATTTTCTGAG
+
+ATCGAGGATCGTGTCGCTGCTTTGTGAATCGCCCGAAACTGTCGATGCTGGGGTTGG
+
+CGACACGAACCATACTTCAGGATGGGCTTGCCCATTGGCTGGATTTTCACAAAGCAG
+
+AGTATGGTTCCTCGATCCAACCCCAGCGAAGTATTCTCAGAAAATCGCCCATCCTGA
+```
+
+I have manually checked the complementarity here.
 
 ### DLS
 
@@ -28,7 +43,10 @@ Sequence generation and molecular simulation can be generated with the following
 
 Our actual structure has an edge length of 21 bp, which is approximately 6 nm. The physical diameter of the wireframe structure would then be close to 10 nm, so this large monodisperse peak is somewhat surprising... 
 
-
 ### A260 curves
 
 ### qPCR 
+
+## Common Failure Modes
+
+A rapid quench step can result in the formation of DNA aggregates of diameter approximately 100 um (from DLS), and which migrate through an agarose gel substantially more slowly than the appropriately formed tetrahedral structure. 
