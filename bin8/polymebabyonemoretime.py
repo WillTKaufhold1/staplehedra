@@ -13,7 +13,7 @@ from mrdna_parser import make_parser
 import segment_maker
 
 from m13_grabber import m13seq
-
+import sequence_optimizer
 
 def read_overhang_file(fname):
     return pd.read_csv(fname)
@@ -59,13 +59,22 @@ def __main__():
 
     segs_list = segment_maker.get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,nicks = args.nicks,overhangs = overhangs)
 
+    #now we apply the sequence optimizer.
+
+    sequence_optimizer.optimize_sequence(segs_list)
+
+
     model = mrdna.SegmentModel(
                         segs_list,
                         local_twist = True,
                         dimensions=(5000,5000,5000),
                     )
 
-    model.set_sequence(m13seq(),force=False)
+    
+
+    #model.set_sequence(m13seq(),force=False)
+
+    #NUPACK add sequence here!
 
     prefix = "DNA" 
 

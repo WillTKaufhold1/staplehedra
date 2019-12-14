@@ -487,7 +487,7 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,nicks=1,overhangs = None):
     #TODO: just have nicks on non-overhang sides!!!
     #the list of faces which correspond to overhangs should be accessible no?
     no_nick_faces = []
-    if True: 
+    if type(overhangs) != type(None):
     #if overhangs != None:
         no_nick_faces = list(overhangs['face'])
 
@@ -511,7 +511,6 @@ def get_segments(FNAME, LENGTH_OF_SMALLEST, SPACERS,nicks=1,overhangs = None):
     else:
         segs_list = [segs[i] for i in segs] + single_stranded_dna
 
-    breakpoint()
 
     return segs_list
     

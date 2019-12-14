@@ -1,0 +1,79 @@
+material = dna
+temperature = 25.0
+seed = 93
+domain d_0 = N21
+domain d_1 = N21
+domain d_2 = N21
+domain d_3 = N21
+domain d_4 = N21
+domain d_5 = N21
+domain d_6 = TT
+domain d_7 = TT
+domain d_8 = TT
+domain d_9 = TT
+domain d_10 = TT
+domain d_11 = TT
+domain d_12 = TT
+domain d_13 = TT
+domain d_14 = TT
+domain d_15 = TT
+domain d_16 = TT
+domain d_17 = TT
+strand s_0 = d_0
+strand s_0_comp = d_0*
+strand s_1 = d_1
+strand s_1_comp = d_1*
+strand s_2 = d_2
+strand s_2_comp = d_2*
+strand s_3 = d_3
+strand s_3_comp = d_3*
+strand s_4 = d_4
+strand s_4_comp = d_4*
+strand s_5 = d_5
+strand s_5_comp = d_5*
+complex c_0 = s_0 s_0_comp
+complex c_lonely_0 = s_0
+complex c_1 = s_1 s_1_comp
+complex c_lonely_1 = s_1
+complex c_2 = s_2 s_2_comp
+complex c_lonely_2 = s_2
+complex c_3 = s_3 s_3_comp
+complex c_lonely_3 = s_3
+complex c_4 = s_4 s_4_comp
+complex c_lonely_4 = s_4
+complex c_5 = s_5 s_5_comp
+complex c_lonely_5 = s_5
+c_0.structure = D21+
+c_lonely_0.structure = U21
+c_1.structure = D21+
+c_lonely_1.structure = U21
+c_2.structure = D21+
+c_lonely_2.structure = U21
+c_3.structure = D21+
+c_lonely_3.structure = U21
+c_4.structure = D21+
+c_lonely_4.structure = U21
+c_5.structure = D21+
+c_lonely_5.structure = U21
+tube Crosstalk = c_0 c_1 c_2 c_3 c_4 c_5 
+Crosstalk.c_0.conc[M] = 1e-5
+Crosstalk.c_1.conc[M] = 1e-5
+Crosstalk.c_2.conc[M] = 1e-5
+Crosstalk.c_3.conc[M] = 1e-5
+Crosstalk.c_4.conc[M] = 1e-5
+Crosstalk.c_5.conc[M] = 1e-5
+Crosstalk.offtargets = {maxsize = 2}
+tube Lonely_0 = c_lonely_0
+Lonely_0.offtargets = {maxsize = 2}
+tube Lonely_1 = c_lonely_1
+Lonely_1.offtargets = {maxsize = 2}
+tube Lonely_2 = c_lonely_2
+Lonely_2.offtargets = {maxsize = 2}
+tube Lonely_3 = c_lonely_3
+Lonely_3.offtargets = {maxsize = 2}
+tube Lonely_4 = c_lonely_4
+Lonely_4.offtargets = {maxsize = 2}
+tube Lonely_5 = c_lonely_5
+Lonely_5.offtargets = {maxsize = 2}
+prevent = AAAA, CCC, GGG, UUUU, KKKKKK, MMMMMM, RRRRRR, SSSSSS, WWWWWW, YYYYYY
+stop[%] = 5
