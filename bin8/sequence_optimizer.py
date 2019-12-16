@@ -104,7 +104,6 @@ def optimize_sequence(segs_list):
         i.sequence = 'T'*i.num_nt
     '''
     
-    breakpoint()
     
 
 

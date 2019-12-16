@@ -8,6 +8,22 @@ N.B: this script is barely functional at the moment, and it shouldn't really be 
 
 A Python3 package for the design and simulation of single-stranded DNA polyhedra constructed from staples only. The package takes as an input a ply file, denoting a faceted structure which is expandable to a sphere. It will return sequence choice for oligos, and files for simulation in MRDNA (Multi-Resolution DNA Simulations). Through the MRDNA framework it can perform hierarchical MD simulations, and output simulation files for the coarse grained force field oxDNA, and for atomistic simulation in NAMD.
 
+<!--
+## Background 
+
+The zoological classification of a DNA wireframe polyhedron rests on two factors:
+
+* Is the DNA which forms the polyhedron created from a single long strand, a single long strand with many short strands, or many short strands along?
+* What is the structures of the wireframe edges? Are they single double helices, or DX crossovers, or four helix bundles?
+
+The initial polyhedra developed were made of many short strands of DNA using single helices. Nadrian Seeman's lab first constructed a [cube](https://www.nature.com/articles/350631a0) in 1991, then a [truncated octahedron](https://www.nature.com/articles/350631a0) in 1994. The assembly of these was complex and time consuming, requiring multiple steps of reaction and purification - the cube is described as taking 2 years of labour to manufacture.
+
+In 1994, Andrew Tuerberfield's lab developed a DNA [tetrahedron](https://www.ncbi.nlm.nih.gov/pubmed/15179470) which was synthesized in a thermal annealing single step. 
+
+In 2004, William Shih demonstrated that instead of using many short strands, DNA polyhedra could be constructed through a single long strand, demonstsrating this with a [DNA octahedron](https://www.nature.com/articles/nature02307).
+
+-->
+
 ## The design
 
 I wrote this program so I could design and simulate small scale polyhedra (<20 nm in diameter) which would fold at high efficiency at vast concentrations (>5 uM) with 1:1 stoichiometry of strands. 
@@ -31,7 +47,6 @@ I have also included an option to have a variable number of single stranded DNAs
 
 **Figure 2**: The flexibility of staplehedra can be tuned by controlling the number of unpaired bases between adjacent helices. Here are two cubes with 0 unpaired nucleotides (top), and 6 unparied nucleotides (middle), and 9 unpaired nucleotides (bottom), simulated with oxDNA using the MRDNA interface.
 
-￼   ￼
 
 ### Overhangs
 
@@ -68,8 +83,9 @@ face,overhang,ds_length,ss_length,out_side,ss_extra
 * out_side: whether the 5' or 3' side of the ssDNA faces outward
 * ss_extra: any additional single stranded DNA between the overhanging region, and the DNA which is part of the face.
 
+### Sequence Choice
 
-
+Sequence choice is optimized using the NUPACK DNA design tool, as created by Eric Winfree's group. Briefly, the multitubedesign utility of NUPACK is used to choose domains for each edge of the polyhedra which are mutually orthogonal, and which do not form secondary structure alone.
 
 ## Relationship to other software
 
@@ -85,6 +101,8 @@ Staplehedra is essentially a very specific front end for the MRDNA package/proje
 * MRDNA
 * Python >= 3.5
 * plyfile module for Python
+* NUPACK version 3.2.2, with the mutlitubedesign utility added to the PATH environment variable.
+
 
 ## Stuff that works now
 
@@ -93,6 +111,7 @@ Staplehedra is essentially a very specific front end for the MRDNA package/proje
 * Controllable numbers of unpaired DNA nucleotides between vertices 
 * Strategic placing of strand breaks to create polyhedra from linear DNA
 * Export of sequences to a .csv file
+* Optimization of DNA strand choice to ensure non-interacting domains via NUPACK.
 
 ## Plans for the immediate future (like early December)
 
