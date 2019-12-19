@@ -7,18 +7,14 @@ domain d_2 = N21
 domain d_3 = N21
 domain d_4 = N21
 domain d_5 = N21
-domain d_6 = TT
-domain d_7 = TT
-domain d_8 = TT
-domain d_9 = TT
-domain d_10 = TT
-domain d_11 = TT
-domain d_12 = TT
-domain d_13 = TT
-domain d_14 = TT
-domain d_15 = TT
-domain d_16 = TT
-domain d_17 = TT
+domain d_6 = T
+domain d_7 = T
+domain d_8 = T
+domain d_9 = T
+domain d_10 = T
+domain d_11 = T
+domain d_12 = T
+domain d_13 = T
 strand s_0 = d_0
 strand s_0_comp = d_0*
 strand s_1 = d_1
@@ -63,17 +59,5 @@ Crosstalk.c_3.conc[M] = 1e-5
 Crosstalk.c_4.conc[M] = 1e-5
 Crosstalk.c_5.conc[M] = 1e-5
 Crosstalk.offtargets = {maxsize = 2}
-tube Lonely_0 = c_lonely_0
-Lonely_0.offtargets = {maxsize = 2}
-tube Lonely_1 = c_lonely_1
-Lonely_1.offtargets = {maxsize = 2}
-tube Lonely_2 = c_lonely_2
-Lonely_2.offtargets = {maxsize = 2}
-tube Lonely_3 = c_lonely_3
-Lonely_3.offtargets = {maxsize = 2}
-tube Lonely_4 = c_lonely_4
-Lonely_4.offtargets = {maxsize = 2}
-tube Lonely_5 = c_lonely_5
-Lonely_5.offtargets = {maxsize = 2}
 prevent = AAAA, CCC, GGG, UUUU, KKKKKK, MMMMMM, RRRRRR, SSSSSS, WWWWWW, YYYYYY
 stop[%] = 5

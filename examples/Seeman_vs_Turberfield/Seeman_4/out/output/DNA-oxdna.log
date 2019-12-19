@@ -1,0 +1,60 @@
+INFO: seeding the RNG with 71401
+INFO: Initializing backend 
+INFO: Backend precision: mixed
+INFO: Simulation type: MD
+INFO: The generator will try to take into account bonded interactions by choosing distances between bonded neighbours no larger than 2.000000
+INFO: Running Debye-Huckel at salt concentration =  0.5
+INFO: Using different widths for major and minor grooves
+INFO: CUDA device not specified
+INFO: CUDA sort_every not specified, using 0
+INFO: The generator will try to take into account bonded interactions by choosing distances between bonded neighbours no larger than 2.000000
+INFO: pid: 30137
+INFO: Using a maximum backbone force of 5  (the corresponding mbf_xmax is 0.120156) and a far value of 0.04
+DEBUG: Debye-Huckel parameters: Q=0.054300, lambda_0=0.361645, lambda=0.503714, r_high=1.511142, cutoff=3.229510
+DEBUG: Debye-Huckel parameters: debye_huckel_RC=2.266712e+00, debye_huckel_B=3.133725e-03
+INFO: The Debye length at this temperature and salt concentration is 0.503714
+INFO: (Cells.cpp) N_cells_side: 9, 9, 9; rcut=3.22951, IS_MC: 0
+INFO: N: 300
+INFO: Using randomly distributed velocities
+INFO: Initial kinetic energy: 84.884277
+INFO: Choosing device automatically
+INFO: Computer has 1 devices
+INFO:  - Trying device 0
+INFO:  -- device 0 has properties 6.1
+INFO:  -- using device 0
+INFO:  --- Running on device 0
+INFO: Using a maximum backbone force of 5  (the corresponding mbf_xmax is 0.120156) and a far value of 0.04
+INFO: threads_per_block was not specified or set to 0. The default value (64) will be used
+INFO: Allocated CUDA memory: 0.05 MBs
+INFO: SVN CODE VERSION: 6943M
+INFO: COMPILED ON: 09/02/19
+INFO: Fix diffusion went too far... -428.564, -428.563, 0, (0.00115967>0.000428564)
+INFO:  *** Fix diffusion hopeless... -428.564, -428.561, 0, (0.00311279>0.000428564)
+INFO: diffusion fixed.. -423.497 -423.497
+INFO: diffusion fixed.. -420.474 -420.474
+INFO: diffusion fixed.. -420.625 -420.625
+INFO: diffusion fixed.. -416.2 -416.2
+INFO: diffusion fixed.. -414.156 -414.156
+INFO: diffusion fixed.. -424.948 -424.948
+INFO: Fix diffusion went too far... -413.725, -413.726, 0, (0.000793457>0.000413725)
+INFO:  *** Fix diffusion hopeless... -413.725, -413.722, 0, (0.00308228>0.000413725)
+INFO: diffusion fixed.. -422.062 -422.062
+INFO: Fix diffusion went too far... -413.338, -413.337, 0, (0.00177002>0.000413338)
+INFO:  *** Fix diffusion hopeless... -413.338, -413.335, 0, (0.00338745>0.000413338)
+
+INFO: Total Running Time: 1683.95 s, per step: 1.68395 ms
+INFO: Timings, in seconds, by Timer (total, own, spent in children)
+> SimBackend                       1683.945 (100.0%)        6.168 (  0.4%)     1677.778 ( 99.6%)
+***> Hilbert sorting                  2.797 (  0.2%)        2.797 (  0.2%)        0.000 (  0.0%)
+***> Lists                            4.768 (  0.3%)        4.768 (  0.3%)        0.000 (  0.0%)
+***> Thermostat                      11.223 (  0.7%)       11.223 (  0.7%)        0.000 (  0.0%)
+***> Forces                        1008.802 ( 59.9%)     1008.802 ( 59.9%)        0.000 (  0.0%)
+***> First Step                     650.187 ( 38.6%)      650.187 ( 38.6%)        0.000 (  0.0%)
+
+INFO: END OF THE SIMULATION, everything went OK!
+INFO: Lists updated 1000000 times (every ~1.000000 steps)
+INFO: Aggregated I/O statistics (set debug=1 for file-wise information)
+	 15.777 MB written to files
+	  0.000  B written to stdout/stderr
+	For a total of  0.00937 MB/s
+

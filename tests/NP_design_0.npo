@@ -1,7 +1,7 @@
 general : 
     version  : 3.2.2
-    start time    : Sat Dec 14 13:36:07 2019
-    elapsed[sec]  :   2.561832
+    start time    : Wed Dec 18 15:15:04 2019
+    elapsed[sec]  :   1.952611
     input prefix  : NP_design
 physical : 
     temperature[K]: 298.150000
@@ -29,57 +29,49 @@ design :
     add default stops   : false
 sequences:
     domains:
-        d_0 : TCATTCTCACTTCAACATACC
-        d_0* : GGTATGTTGAAGTGAGAATGA
-        d_1 : CAGGTTTCGAGGTAGTGGTAT
-        d_1* : ATACCACTACCTCGAAACCTG
+        d_0 : TCAATCTCACTTCAACATACC
+        d_0* : GGTATGTTGAAGTGAGATTGA
+        d_1 : CAGGTTTCGCGGTCTTAGTAT
+        d_1* : ATACTAAGACCGCGAAACCTG
         d_2 : TTTGCGTGTTAGTTGTATAGG
         d_2* : CCTATACAACTAACACGCAAA
         d_3 : GAGGTTAAGGTAGAGGTGGAA
         d_3* : TTCCACCTCTACCTTAACCTC
-        d_4 : CATCCAGTCACATCGCCATTA
-        d_4* : TAATGGCGATGTGACTGGATG
+        d_4 : CATCCAGTCACAGCGCCATTA
+        d_4* : TAATGGCGCTGTGACTGGATG
         d_5 : CCATCCATAAACTCAAACGCC
         d_5* : GGCGTTTGAGTTTATGGATGG
-        d_6 : TT
-        d_6* : AA
-        d_7 : TT
-        d_7* : AA
-        d_8 : TT
-        d_8* : AA
-        d_9 : TT
-        d_9* : AA
-        d_10 : TT
-        d_10* : AA
-        d_11 : TT
-        d_11* : AA
-        d_12 : TT
-        d_12* : AA
-        d_13 : TT
-        d_13* : AA
-        d_14 : TT
-        d_14* : AA
-        d_15 : TT
-        d_15* : AA
-        d_16 : TT
-        d_16* : AA
-        d_17 : TT
-        d_17* : AA
+        d_6 : T
+        d_6* : A
+        d_7 : T
+        d_7* : A
+        d_8 : T
+        d_8* : A
+        d_9 : T
+        d_9* : A
+        d_10 : T
+        d_10* : A
+        d_11 : T
+        d_11* : A
+        d_12 : T
+        d_12* : A
+        d_13 : T
+        d_13* : A
     strands:
-        s_0 : TCATTCTCACTTCAACATACC
-        s_0_comp : GGTATGTTGAAGTGAGAATGA
-        s_1 : CAGGTTTCGAGGTAGTGGTAT
-        s_1_comp : ATACCACTACCTCGAAACCTG
+        s_0 : TCAATCTCACTTCAACATACC
+        s_0_comp : GGTATGTTGAAGTGAGATTGA
+        s_1 : CAGGTTTCGCGGTCTTAGTAT
+        s_1_comp : ATACTAAGACCGCGAAACCTG
         s_2 : TTTGCGTGTTAGTTGTATAGG
         s_2_comp : CCTATACAACTAACACGCAAA
         s_3 : GAGGTTAAGGTAGAGGTGGAA
         s_3_comp : TTCCACCTCTACCTTAACCTC
-        s_4 : CATCCAGTCACATCGCCATTA
-        s_4_comp : TAATGGCGATGTGACTGGATG
+        s_4 : CATCCAGTCACAGCGCCATTA
+        s_4_comp : TAATGGCGCTGTGACTGGATG
         s_5 : CCATCCATAAACTCAAACGCC
         s_5_comp : GGCGTTTGAGTTTATGGATGG
 design properties:
-    evaluation time:   0.293716
+    evaluation time:   0.292663
     on-targets: 12
     off-targets: 78
 physical results:
@@ -87,20 +79,20 @@ physical results:
     structures: 
       - name: c_0
         structure: (((((((((((((((((((((+)))))))))))))))))))))
-        sequence:  TCATTCTCACTTCAACATACC+GGTATGTTGAAGTGAGAATGA
-        defect[nt]:   1.626803
+        sequence:  TCAATCTCACTTCAACATACC+GGTATGTTGAAGTGAGATTGA
+        defect[nt]:   1.626781
         normalized defect:   0.038733
         target free energy[kcal/(mol K)]: -30.668636
-        target probability:   0.321341
-        complex free energy[kcal/(mol K)]: -31.341245
+        target probability:   0.321328
+        complex free energy[kcal/(mol K)]: -31.341268
       - name: c_1
         structure: (((((((((((((((((((((+)))))))))))))))))))))
-        sequence:  CAGGTTTCGAGGTAGTGGTAT+ATACCACTACCTCGAAACCTG
-        defect[nt]:   1.985946
-        normalized defect:   0.047284
-        target free energy[kcal/(mol K)]: -32.428189
-        target probability:   0.414733
-        complex free energy[kcal/(mol K)]: -32.949639
+        sequence:  CAGGTTTCGCGGTCTTAGTAT+ATACTAAGACCGCGAAACCTG
+        defect[nt]:   1.994105
+        normalized defect:   0.047479
+        target free energy[kcal/(mol K)]: -33.213429
+        target probability:   0.413161
+        complex free energy[kcal/(mol K)]: -33.737128
       - name: c_2
         structure: (((((((((((((((((((((+)))))))))))))))))))))
         sequence:  TTTGCGTGTTAGTTGTATAGG+CCTATACAACTAACACGCAAA
@@ -119,12 +111,12 @@ physical results:
         complex free energy[kcal/(mol K)]: -32.139860
       - name: c_4
         structure: (((((((((((((((((((((+)))))))))))))))))))))
-        sequence:  CATCCAGTCACATCGCCATTA+TAATGGCGATGTGACTGGATG
-        defect[nt]:   2.030320
-        normalized defect:   0.048341
-        target free energy[kcal/(mol K)]: -33.280482
-        target probability:   0.205249
-        complex free energy[kcal/(mol K)]: -34.218684
+        sequence:  CATCCAGTCACAGCGCCATTA+TAATGGCGCTGTGACTGGATG
+        defect[nt]:   2.024416
+        normalized defect:   0.048200
+        target free energy[kcal/(mol K)]: -34.653756
+        target probability:   0.205847
+        complex free energy[kcal/(mol K)]: -35.590235
       - name: c_5
         structure: (((((((((((((((((((((+)))))))))))))))))))))
         sequence:  CCATCCATAAACTCAAACGCC+GGCGTTTGAGTTTATGGATGG
@@ -135,20 +127,20 @@ physical results:
         complex free energy[kcal/(mol K)]: -33.411378
       - name: c_lonely_0
         structure: .....................
-        sequence:  TCATTCTCACTTCAACATACC
-        defect[nt]:   0.341822
-        normalized defect:   0.016277
+        sequence:  TCAATCTCACTTCAACATACC
+        defect[nt]:   0.452449
+        normalized defect:   0.021545
         target free energy[kcal/(mol K)]:   0.000000
-        target probability:   0.875873
-        complex free energy[kcal/(mol K)]:  -0.078523
+        target probability:   0.843742
+        complex free energy[kcal/(mol K)]:  -0.100667
       - name: c_lonely_1
         structure: .....................
-        sequence:  CAGGTTTCGAGGTAGTGGTAT
-        defect[nt]:   1.365152
-        normalized defect:   0.065007
+        sequence:  CAGGTTTCGCGGTCTTAGTAT
+        defect[nt]:   1.719434
+        normalized defect:   0.081878
         target free energy[kcal/(mol K)]:   0.000000
-        target probability:   0.523800
-        complex free energy[kcal/(mol K)]:  -0.383120
+        target probability:   0.440178
+        complex free energy[kcal/(mol K)]:  -0.486171
       - name: c_lonely_2
         structure: .....................
         sequence:  TTTGCGTGTTAGTTGTATAGG
@@ -167,12 +159,12 @@ physical results:
         complex free energy[kcal/(mol K)]:  -0.126665
       - name: c_lonely_4
         structure: .....................
-        sequence:  CATCCAGTCACATCGCCATTA
-        defect[nt]:   1.157948
-        normalized defect:   0.055140
+        sequence:  CATCCAGTCACAGCGCCATTA
+        defect[nt]:   1.239579
+        normalized defect:   0.059028
         target free energy[kcal/(mol K)]:   0.000000
-        target probability:   0.566372
-        complex free energy[kcal/(mol K)]:  -0.336824
+        target probability:   0.532065
+        complex free energy[kcal/(mol K)]:  -0.373845
       - name: c_lonely_5
         structure: .....................
         sequence:  CCATCCATAAACTCAAACGCC
@@ -183,9 +175,9 @@ physical results:
         complex free energy[kcal/(mol K)]:  -0.156914
     tubes: 
       - name: Crosstalk
-        defect[M nt]: 8.740223e-05
+        defect[M nt]: 8.742456e-05
         nucleotide conc[M nt]: 2.520000e-03
-        normalized defect:   0.034683
+        normalized defect:   0.034692
         complexes: 
           - name: c_0
             concentration: 1.000000e-05
@@ -206,76 +198,28 @@ physical results:
             concentration: 1.000000e-05
             target concentration: 1.000000e-05
           - name: c_lonely_0
-            concentration: 1.067420e-13
+            concentration: 1.174344e-13
             target concentration: 0.000000e+00
           - name: c_lonely_1
-            concentration: 3.843610e-14
+            concentration: 2.421506e-14
             target concentration: 0.000000e+00
           - name: c_lonely_2
-            concentration: 9.767837e-14
+            concentration: 9.767836e-14
             target concentration: 0.000000e+00
           - name: c_lonely_3
-            concentration: 4.611698e-14
+            concentration: 4.616824e-14
             target concentration: 0.000000e+00
           - name: c_lonely_4
-            concentration: 2.147075e-14
+            concentration: 6.928983e-15
             target concentration: 0.000000e+00
           - name: c_lonely_5
-            concentration: 2.501943e-14
+            concentration: 2.501942e-14
             target concentration: 0.000000e+00
-      - name: Lonely_0
-        defect[M nt]: 4.677670e-07
-        nucleotide conc[M nt]: 2.869685e-05
-        normalized defect:   0.016300
-        complexes: 
-          - name: c_lonely_0
-            concentration: 1.366485e-06
-            target concentration: 1.366517e-06
-      - name: Lonely_1
-        defect[M nt]: 1.920236e-06
-        nucleotide conc[M nt]: 2.869685e-05
-        normalized defect:   0.066915
-        complexes: 
-          - name: c_lonely_1
-            concentration: 1.363729e-06
-            target concentration: 1.366517e-06
-      - name: Lonely_2
-        defect[M nt]: 1.598379e-06
-        nucleotide conc[M nt]: 2.869685e-05
-        normalized defect:   0.055699
-        complexes: 
-          - name: c_lonely_2
-            concentration: 1.366004e-06
-            target concentration: 1.366517e-06
-      - name: Lonely_3
-        defect[M nt]: 6.083628e-07
-        nucleotide conc[M nt]: 2.869685e-05
-        normalized defect:   0.021200
-        complexes: 
-          - name: c_lonely_3
-            concentration: 1.366468e-06
-            target concentration: 1.366517e-06
-      - name: Lonely_4
-        defect[M nt]: 1.589409e-06
-        nucleotide conc[M nt]: 2.869685e-05
-        normalized defect:   0.055386
-        complexes: 
-          - name: c_lonely_4
-            concentration: 1.366161e-06
-            target concentration: 1.366517e-06
-      - name: Lonely_5
-        defect[M nt]: 6.874524e-07
-        nucleotide conc[M nt]: 2.869685e-05
-        normalized defect:   0.023956
-        complexes: 
-          - name: c_lonely_5
-            concentration: 1.365886e-06
-            target concentration: 1.366517e-06
-mean objective:   0.039163
+mean objective:   0.042451
 objectives:
   - name: combined_objective
-    defect: 0.039163
+    defect: 0.042451
     satisfied: true
     stop: 0.050000
     type: combined
-    including: (Crosstalk, Lonely_0, Lonely_1, Lonely_2, Lonely_3, Lonely_4, Lonely_5)
+    including: (c_lonely_0, c_lonely_1, c_lonely_2, c_lonely_3, c_lonely_4, c_lonely_5, Crosstalk)
