@@ -34,17 +34,23 @@ Since these are quite small simulations, they can be run simultaneously on the s
 Let's look first at the Seeman style edge nicks.
 
 <img src = "https://imgur.com/PRDpFfY.gif"/>
+Figure 1: Seeman nicks, 0 spacers. Reasonable tetrahedral shape.
+
 
 <img src = "https://imgur.com/kRWdZWF.gif"/>
-
+Figure 2: Seeman nicks, 2 spacers. Additional spacers allow deformation of molecule into structure with maximum stacking. This requires the nick to also correspond to a vertex, so the end resulting structures is no longer tetrahedral.
 
 <img src = "https://imgur.com/gwzKznO.gif"/>
+Figure 3: Seeman nicks, 4 spacers. Now with 4 spacers, stacking of the duplexes at edges is no longer particularly favorable, so well structured tetrahedron is recovered.
 
 <img src = "https://imgur.com/5Pa2BaA.gif"/>
+Figure 4: Turberfield nicks, 0 spacers.  While topologically a tetrahedron, this doesn't particularly resemble the original design, as at vertices, the edges are free to rotate due to the nick. 
 
 <img src = "https://imgur.com/0FPDFwz.gif"/>
-<img src = "https://imgur.com/S0iiEnk.gif"/>
+Figure 5: Turberfield nicks, 2 spacers. Similar to Figure 4, except that now with additional spacers, the vertex is more symmetric: while the nick does lead to rotation and opening of the vertex, the edge structure on the vertex is essentially still symmetric. This is because additional ssDNA spacers between adjacent edges add some bulk in that part of the vertex where the strand is not nicked.
 
+<img src = "https://imgur.com/S0iiEnk.gif"/>
+Figure 6: Turberfield nicks, 4 spacers. Essentially the same as Figure 5, but with enhanced vertex size.
 
 
 
