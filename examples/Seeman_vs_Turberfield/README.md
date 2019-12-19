@@ -20,12 +20,12 @@ Simulations for the Seeman tetrahedron are run with the command
 
 ```bash
 for i in 0 2 4; do (mkdir Seeman_$i && cd Seeman_$i && staplehedra ../plyfiles/tetrahedron.ply --spacers $i --coarse-steps 1e4 --fine-steps 1e4 --oxdna-steps 1e6 -d out --nicks 1 ) & done
-```.
+```
 Simulations for the Turberfield tetrahedron are run with the command
 
 ```bash
 for i in 0 2 4; do (mkdir Turberfield_$i && cd Turberfield_$i && staplehedra ../plyfiles/tetrahedron.ply --spacers $i --coarse-steps 1e4 --fine-steps 1e4 --oxdna-steps 1e6 -d out --nicks 0 --ldmoverhangfile ../../../overhang_files/ldm_tet_seq.overhang) & done
-```.
+```
 
 Since these are quite small simulations, they can be run simultaneously on the same GPU. I imagine this substantially impacts performance, but I haven't ever done an explicit comparison.
 
